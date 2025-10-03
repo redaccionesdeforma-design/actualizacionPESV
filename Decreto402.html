@@ -51,7 +51,7 @@
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
         
-        /* Flip Card */
+        /* Flip Card (Tarjeta de Volteo) */
         .flip-card {
             perspective: 1000px;
             min-height: 320px;
@@ -97,39 +97,121 @@
         }
         .pulse-button { animation: pulse 2.5s infinite; }
 
+        /* Estilo del Botón de Índice Flotante (NUEVO: Lado izquierdo, con texto y grosor fijo) */
+        #index-fab-v3 {
+            position: fixed;
+            top: 2rem; /* Separación de la parte superior */
+            left: 2rem; /* Separación de la parte izquierda */
+            z-index: 50;
+            opacity: 0; /* Empieza oculto */
+            transform: translateX(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 49, 137, 0.4); /* Sombra más fuerte para que destaque */
+            
+            /* Estilos específicos para grosor fijo */
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem; /* Relleno consistente */
+            border-radius: 0.75rem; /* Esquinas redondeadas, no un círculo */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Clase para mostrar el botón de índice */
+        #index-fab-v3.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Ajustes para móviles */
+        @media (max-width: 640px) {
+            #index-fab-v3 {
+                top: 1rem; 
+                left: 1rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.875rem; /* Texto un poco más pequeño en móvil */
+            }
+        }
+        
+        /* Estilo del botón de la Resolución */
+        .resolution-tag {
+            background-color: #ffe8d6;
+            color: #da723f;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+            transition: all 0.2s;
+            cursor: default;
+        }
+        .resolution-tag:hover {
+             transform: translateY(-1px);
+             box-shadow: 0 6px 8px -1px rgb(0 0 0 / 0.15), 0 3px 5px -3px rgb(0 0 0 / 0.1);
+        }
+
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="bg-white shadow-sm">
+    <!-- Botón de Índice Flotante (NUEVO DISEÑO SOLICITADO) -->
+    <!-- Este botón se mostrará cuando el usuario baje y regresará al inicio (#top) -->
+    <a href="https://redaccionesdeforma-design.github.io/actualizacionPESV/index.html" target="_blank" rel="noopener noreferrer"  id="index-fab-v3" class="hover:bg-blue-800 focus:outline-none hover:scale-105 transition-transform">
+        <!-- Icono de casa -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Índice</span>
+    </a>
+
+
+    <!-- Header Section (Anchor for Index) -->
+    <div id="top" class="bg-white shadow-sm">
         <header class="text-center py-8" style="background-color: var(--bg-light-blue);">
             <div class="container mx-auto px-4">
+                <!-- Imagen de logo placeholder -->
                 <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Colombia Pedalea" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
                 <h1 class="text-4xl md:text-5xl font-black tracking-tight" style="color: var(--primary-orange);">
                     ¡Colombia Pedalea!
                 </h1>
                 <p class="mt-2 text-xl md:text-2xl font-bold text-slate-800">Conoce el Programa Nacional de Fomento al Uso de la Bicicleta (PFUB)</p>
                 <p class="mt-3 text-base text-slate-600 max-w-3xl mx-auto">Un plan para hacer de la bicicleta un medio de transporte seguro, inclusivo y hecho en casa.</p>
-                <p class="mt-4 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full py-1.5 px-5 inline-block">Decreto 402 del 1 de abril de 2025</p>
+                
+                <!-- Botón de Resolución con el nuevo estilo .resolution-tag -->
+                <div class="mt-6">
+                    <span class="resolution-tag inline-block text-sm">
+                        Decreto 402 del 1 de abril de 2025
+                    </span>
+                </div>
             </div>
         </header>
     </div>
 
+    <!-- Main Content Area -->
     <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
         <main class="space-y-10 mt-8">
             
+            <!-- Objective Section -->
             <section class="section-card p-6 md:p-8 text-center">
+                <!-- Imagen de objetivo placeholder -->
                 <img src="https://i.imgur.com/QPdM141.jpeg" class="h-20 w-20 mx-auto mb-4"/>
                 <h2 class="text-2xl font-bold text-slate-900">Objetivo Principal del Programa</h2>
                 <p class="mt-2 text-lg text-slate-600 max-w-3xl mx-auto">El PFUB busca promover el uso de la bicicleta en todo el país como un <strong style="color: var(--primary-orange);">medio de transporte principal</strong>.</p>
             </section>
             
+            <!-- Pillars Section (3 Flip Cards) -->
             <section class="section-card p-6 md:p-8">
                 <div class="text-left mb-6">
                     <h2 class="text-3xl font-bold text-slate-900">Los 3 Pilares Fundamentales</h2>
                     <div class="highlight-line"></div>
                 </div>
                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Pillar 1: Fomentar el Uso -->
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front" style="background-color: #fffbeb;">
@@ -146,6 +228,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Pillar 2: Impulsar la Industria -->
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front" style="background-color: #fee2e2;">
@@ -161,6 +244,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Pillar 3: Garantizar la Seguridad -->
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front" style="background-color: #ecfdf5;">
@@ -177,6 +261,7 @@
                         </div>
                     </div>
                  </div>
+                 <!-- Button to open PESV Modal -->
                  <div class="text-center mt-8">
                     <button id="pesv-button" class="pulse-button inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-orange);">
                         ¿Cómo afecta esto al PESV?
@@ -184,6 +269,7 @@
                  </div>
             </section>
             
+            <!-- Benefits Call to Action -->
             <section class="section-card p-6 md:p-8 text-center">
                  <div class="text-center mb-6">
                     <h2 class="text-3xl font-bold text-slate-900">Beneficios para la Comunidad</h2>
@@ -195,14 +281,18 @@
             </section>
         </main>
 
+        <!-- Footer -->
         <footer class="text-center mt-12 pt-8 border-t border-slate-200">
              <p class="text-2xl font-bold text-slate-800">¡Súbete a la bici, apoya lo nuestro y rueda seguro!</p>
              <p class="mt-2 text-sm text-slate-500 mb-4">Fuente: Decreto 402 de 2025 y Concepto del Ministerio de Transporte.</p>
+             <!-- Link to original decree -->
              <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Decretos/30054780" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-blue);">Consultar Decreto Original</a>
         </footer>
     </div>
 
-    <!-- Modals & Chatbot -->
+    <!-- Modals (Ventanas Emergentes) -->
+    
+    <!-- Benefits Modal -->
     <div id="benefits-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto transform scale-95">
             <div class="p-6">
@@ -221,6 +311,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- PESV Modal -->
      <div id="pesv-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto transform scale-95">
             <div class="p-6">
@@ -240,9 +332,13 @@
         </div>
     </div>
     
+    <!-- Floating Action Button (FAB) for Chatbot -->
     <button id="chat-fab" class="fixed bottom-6 right-6 text-white rounded-full p-4 shadow-lg transition-transform hover:scale-110 z-40" style="background-color: var(--primary-orange);">
+        <!-- Icono de chat -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 0 0 10-10c0-5.52-4.48-10-10-10S2 6.48 2 12c0 2.45 1.11 4.7 2.86 6.34.03.03.06.06.09.09l1.72 1.72c.58.58 1.52.58 2.1 0l1.4-1.4c.58-.58.58-1.52 0-2.1l-1.4-1.4c-.58-.58-1.52-.58-2.1 0L5.5 16.51c-1.28-1.3-2-3.07-2-4.93 0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7a6.96 6.96 0 0 1-2.92-.68"/><path d="m16 9-2.5 2.5"/><path d="m13.5 11.5 2.5 2.5"/><circle cx="12" cy="12" r="10"/></svg>
     </button>
+    
+    <!-- Chatbot Window -->
     <div id="chat-window" class="hidden fixed bottom-24 right-6 w-full max-w-sm bg-white rounded-xl shadow-2xl flex flex-col h-[70vh] max-h-[500px] z-40">
         <div class="p-4 border-b bg-slate-100 rounded-t-xl">
             <div class="flex justify-between items-center">
@@ -251,11 +347,14 @@
             </div>
             <p class="text-sm text-slate-500">Pregúntame sobre el Decreto 402</p>
         </div>
-        <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto bg-white"></div>
+        <!-- Message display area -->
+        <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto bg-white flex flex-col"></div>
+        <!-- Input area -->
         <div class="p-4 border-t bg-slate-50">
             <div class="flex space-x-2">
                 <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2" style="border-color: var(--border-color); --tw-ring-color: var(--primary-orange);">
                 <button id="chat-send" class="text-white rounded-lg px-4 py-2 font-semibold" style="background-color: var(--primary-orange);">
+                    <!-- Icono de enviar -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 </button>
             </div>
@@ -265,6 +364,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Función para configurar modales (ventanas emergentes)
             const setupModal = (modalId, triggerSelector) => {
                 const modal = document.getElementById(modalId);
                 const trigger = document.getElementById(triggerSelector);
@@ -273,57 +373,89 @@
                     trigger.addEventListener('click', () => openModal(modal));
                 }
                 
+                // Cierra al hacer clic en el botón X o Entendido
                 modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
                     btn.addEventListener('click', () => closeModal(modal));
                 });
 
+                // Cierra al hacer clic fuera del modal
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) closeModal(modal);
                 });
             };
 
+            // Muestra el modal
             const openModal = (modal) => {
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modal.querySelector('.modal-content').classList.remove('scale-95');
             };
 
+            // Oculta el modal
             const closeModal = (modal) => {
                 modal.classList.add('opacity-0', 'pointer-events-none');
                 modal.querySelector('.modal-content').classList.add('scale-95');
             };
 
+            // Configurar los modales de Beneficios y PESV
             setupModal('benefits-modal', 'benefits-button');
             setupModal('pesv-modal', 'pesv-button');
             
+            // Lógica del Chatbot
             const chatFab = document.getElementById('chat-fab');
             const chatWindow = document.getElementById('chat-window');
             const closeChatBtn = document.getElementById('chat-close');
             const chatMessages = document.getElementById('chat-messages');
             const chatInput = document.getElementById('chat-input');
             const chatSendBtn = document.getElementById('chat-send');
-
+            
+            // Referencia al NUEVO botón de índice
+            const indexFabV3 = document.getElementById('index-fab-v3'); 
+            
+            // === Lógica del Botón de Índice Flotante (NUEVO DISEÑO) ===
+            const handleScroll = () => {
+                // Muestra el botón de índice si el scroll vertical es mayor a 400px
+                if (window.scrollY > 400) {
+                    indexFabV3.classList.add('visible');
+                } else {
+                    indexFabV3.classList.remove('visible');
+                }
+            };
+            
+            // Asocia el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+            
+            // Toggle de la ventana del chat
             chatFab.addEventListener('click', () => chatWindow.classList.remove('hidden'));
             closeChatBtn.addEventListener('click', () => chatWindow.classList.add('hidden'));
 
+            // Añade un mensaje al historial del chat
             const addMessage = (text, sender) => {
                 const messageEl = document.createElement('div');
-                messageEl.className = `w-fit max-w-xs lg:max-w-sm p-3 rounded-xl ${sender === 'user' ? 'user-message self-end' : 'ai-message self-start'}`;
+                messageEl.className = `max-w-xs lg:max-w-sm p-3 rounded-xl ${sender === 'user' ? 'user-message self-end' : 'ai-message self-start'}`;
                 messageEl.textContent = text;
-                chatMessages.appendChild(messageEl);
+                
+                const containerEl = document.createElement('div');
+                containerEl.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} w-full`;
+                containerEl.appendChild(messageEl);
+                chatMessages.appendChild(containerEl);
+                
+                // Scroll automático al último mensaje
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             };
             
+            // Lógica simple de respuesta del AI (respuestas predefinidas)
             const getAiResponse = (message) => {
                 const m = message.toLowerCase();
-                if (m.includes('hola')) return '¡Hola! Soy Vial-E. Estoy aquí para resolver tus dudas sobre el Decreto 402 y el fomento de la bicicleta.';
-                if (m.includes('empresa') || m.includes('pesv')) return 'Para el PESV de una empresa, este decreto es fundamental. Fomentar el uso de la bici entre empleados reduce la accidentalidad en trayectos. Las empresas pueden crear biciparqueaderos seguros, ofrecer incentivos y capacitar sobre las normas técnicas de seguridad para cascos, fortaleciendo su plan de seguridad vial.';
-                if (m.includes('pilares')) return 'El programa tiene 3 pilares: 1) Fomentar el uso masivo e inclusivo de la bici. 2) Impulsar la industria nacional de bicicletas y partes. 3) Garantizar la seguridad del ciclista con normas técnicas claras para equipos de protección.';
-                if (m.includes('beneficios')) return 'Los beneficios principales son: la mitigación del impacto ambiental, la mejora de la movilidad en las ciudades y la creación de incentivos económicos para quienes usen la bicicleta de forma intermodal con el transporte público.';
-                if (m.includes('seguridad') || m.includes('casco')) return 'La seguridad es un pilar clave. El decreto impulsará la creación de normas técnicas para asegurar que los elementos de protección, como los cascos, sean de alta calidad y realmente seguros para los ciclistas.';
-                if (m.includes('gracias')) return '¡Con gusto! Fomentar la bici es un trabajo de todos. ¡A rodar seguro!';
-                return 'No entendí bien tu pregunta. Intenta usar palabras como "empresa", "PESV", "pilares", "beneficios" o "seguridad".';
+                if (m.includes('hola') || m.includes('quien eres')) return '¡Hola! Soy Vial-E. Estoy aquí para resolver tus dudas sobre el Decreto 402 y el fomento de la bicicleta.';
+                if (m.includes('empresa') || m.includes('pesv') || m.includes('riesgo')) return 'Para el PESV de una empresa, este decreto es fundamental. Fomentar el uso de la bici entre empleados reduce la accidentalidad en trayectos. Las empresas pueden crear biciparqueaderos seguros, ofrecer incentivos y capacitar sobre las normas técnicas de seguridad para cascos, fortaleciendo su plan de seguridad vial.';
+                if (m.includes('pilares') || m.includes('fundamentales')) return 'El programa tiene 3 pilares: 1) Fomentar el uso masivo e inclusivo de la bici. 2) Impulsar la industria nacional de bicicletas y partes. 3) Garantizar la seguridad del ciclista con normas técnicas claras para equipos de protección.';
+                if (m.includes('beneficios') || m.includes('ventajas')) return 'Los beneficios principales son: la mitigación del impacto ambiental, la mejora de la movilidad en las ciudades y la creación de incentivos económicos para quienes usen la bicicleta de forma intermodal con el transporte público.';
+                if (m.includes('seguridad') || m.includes('casco') || m.includes('normas')) return 'La seguridad es un pilar clave. El decreto impulsará la creación de normas técnicas para asegurar que los elementos de protección, como los cascos, sean de alta calidad y realmente seguros para los ciclistas.';
+                if (m.includes('gracias') || m.includes('ok')) return '¡Con gusto! Fomentar la bici es un trabajo de todos. ¡A rodar seguro!';
+                return 'No entendí bien tu pregunta. Intenta usar palabras clave como "empresa", "PESV", "pilares", "beneficios" o "seguridad" para obtener una respuesta más precisa.';
             };
             
+            // Manejador del envío de mensajes
             const handleSendMessage = () => {
                 const userText = chatInput.value.trim();
                 if (!userText) return;
@@ -332,19 +464,21 @@
                 chatInput.value = '';
                 
                 const aiText = getAiResponse(userText);
+                // Espera un poco para simular una respuesta del AI
                 setTimeout(() => {
                      addMessage(aiText, 'ai');
                 }, 500);
             };
 
+            // Event listeners para enviar mensaje (botón y Enter)
             chatSendBtn.addEventListener('click', handleSendMessage);
             chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') handleSendMessage();
             });
 
+            // Mensaje de bienvenida inicial del chatbot
             setTimeout(() => addMessage('¡Hola! Soy Vial-E. Pregúntame sobre el impacto de esta norma en el PESV y en las empresas.', 'ai'), 500);
         });
     </script>
 </body>
 </html>
-
