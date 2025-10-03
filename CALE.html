@@ -23,6 +23,8 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             background-color: var(--bg-orange-light);
+            /* Permite un desplazamiento suave al usar el botón de índice */
+            scroll-behavior: smooth;
         }
         
         .highlight-line {
@@ -96,7 +98,17 @@
 </head>
 <body class="antialiased">
 
-    <div class="bg-white shadow-sm">
+    <!-- Botón flotante de Índice/Inicio: Enfatizado con color primario y sombra. Navega a la parte superior. -->
+    <a href="https://redaccionesdeforma-design.github.io/actualizacionPESV/index.html" target="_blank" rel="noopener noreferrer" class="fixed top-4 left-4 z-50 p-3 rounded-xl shadow-xl font-bold transition-all duration-300 hover:scale-[1.03] active:scale-95 text-white flex items-center space-x-1 sm:space-x-2" style="background-color: var(--primary-blue); border: 2px solid white;">
+        <!-- Icono de Casa (SVG) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+        <!-- Oculta el texto "Índice" en móviles pequeños para ahorrar espacio -->
+        <span class="hidden sm:inline text-sm">Índice</span>
+    </a>
+    
+    <div class="bg-white shadow-sm" id="top">
         <header class="text-center py-8">
             <div class="container mx-auto px-4">
                  <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
@@ -113,7 +125,7 @@
     <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
         <main class="space-y-10 mt-8">
             
-            <section class="section-card p-6 md:p-8">
+            <section class="section-card p-6 md:p-8" id="que-son-cale">
                 <div class="flex flex-col md:flex-row items-center gap-8">
                     <div class="flex-shrink-0">
                         <img src="https://img.icons8.com/fluency/144/verified-account.png" alt="Licencia Verificada" class="h-36 w-36"/>
@@ -129,7 +141,7 @@
                 </div>
             </section>
 
-            <section class="section-card p-6 md:p-8">
+            <section class="section-card p-6 md:p-8" id="evaluaciones-clave">
                 <div class="text-left mb-6">
                     <h2 class="text-3xl font-bold text-slate-900">De la Teoría a la Práctica Real: Las 3 Evaluaciones Clave</h2>
                     <div class="highlight-line"></div>
@@ -156,7 +168,7 @@
                 </div>
             </section>
             
-            <section class="section-card p-6 md:p-8">
+            <section class="section-card p-6 md:p-8" id="beneficios-directos">
                  <div class="text-left mb-6">
                     <h2 class="text-3xl font-bold text-slate-900">Beneficio Directo para tu PESV</h2>
                     <div class="highlight-line"></div>
@@ -218,6 +230,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Datos para el modal de cada botón
             const modalData = {
                 'teorica-btn': {
                     title: 'Beneficio: Prueba Teórica',
@@ -245,6 +258,7 @@
             const modalTitle = document.getElementById('info-modal-title');
             const modalText = document.getElementById('info-modal-text');
 
+            // Manejador de eventos para los botones de información
             document.querySelectorAll('.info-button').forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -256,17 +270,27 @@
                     }
                 });
             });
+
+            // Función para abrir el modal
             const openModal = (modal) => {
+                // Elimina las clases de ocultamiento y añade el efecto de escala (para la transición)
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modal.querySelector('.modal-content').classList.remove('scale-95');
             };
+
+            // Función para cerrar el modal
             const closeModal = (modal) => {
+                 // Añade las clases de ocultamiento y el efecto de escala (para la transición)
                 modal.classList.add('opacity-0', 'pointer-events-none');
                 modal.querySelector('.modal-content').classList.add('scale-95');
             };
+
+            // Eventos para cerrar el modal (botón X y botón Entendido)
             modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
                 btn.addEventListener('click', () => closeModal(modal));
             });
+            
+            // Evento para cerrar el modal al hacer clic fuera de su contenido
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeModal(modal);
             });
@@ -274,4 +298,3 @@
     </script>
 </body>
 </html>
-
