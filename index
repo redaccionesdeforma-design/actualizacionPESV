@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen: Actualización del PESV con Nuevas Normativas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette */
+            --primary-orange: #da723f;
+            --primary-blue: #003189;
+            
+            /* UI Colors */
+            --text-dark: #1e293b;
+            --bg-orange-light: #FFF9F5;
+            --border-color: #fdeee7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-orange-light);
+        }
+        
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(218, 114, 63, 0.1), 0 8px 10px -6px rgba(218, 114, 63, 0.1);
+        }
+        
+        .info-button {
+           display: inline-block;
+           background-color: var(--primary-blue);
+           color: white;
+           padding: 0.75rem 1.5rem;
+           border-radius: 9999px;
+           font-weight: 700;
+           font-size: 1rem;
+           cursor: pointer;
+           transition: all 0.2s ease-in-out;
+           box-shadow: 0 4px 20px 0 rgb(0 49 137 / 40%);
+        }
+        .info-button:hover {
+            background-color: #002260;
+            transform: scale(1.05);
+        }
+
+        .card-icon-bg {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-white shadow-sm">
+        <header class="text-center py-8">
+            <div class="container mx-auto px-4">
+                 <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
+                 <h1 class="text-5xl md:text-6xl font-black tracking-tight" style="color: var(--primary-orange);">
+                    Actualiza tu PESV
+                 </h1>
+                 <p class="mt-2 text-xl md:text-2xl font-bold text-slate-800">Guía Rápida de las Nuevas Normativas</p>
+                 <div class="h-1.5 w-24 mx-auto mt-4 rounded-full" style="background-color: var(--primary-blue);"></div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            
+            <!-- Sección 1 -->
+            <div class="section-card">
+                <div class="p-6 md:p-8 flex-grow relative">
+                    <!-- Icono: Scooter eléctrico -->
+                    <img src="https://i.imgur.com/CUg6MKB.png" class="h-48 w-48 card-icon-bg" alt="Icono scooter eléctrico"/>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-2" style="color: var(--primary-blue);">1. ¡Nuevos Actores en la Vía!</h2>
+                        <p class="text-lg font-semibold mb-4" style="color: var(--primary-orange);">Ley 2486 de 2025: Vehículos de Movilidad Personal</p>
+                        <p class="text-slate-600 text-base mb-4">Tu PESV debe educar a los colaboradores sobre las nuevas reglas para patinetas y bicicletas eléctricas.</p>
+                        <ul class="text-base space-y-2 text-slate-700 list-disc list-inside">
+                            <li>Prohibido conducir bajo efectos de alcohol o SPA.</li>
+                            <li>Uso obligatorio de casco y reflectivos de noche.</li>
+                            <li>Distancia de adelantamiento de <strong class="font-bold">1.50m</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center p-6 bg-slate-50 border-t-2 border-slate-100">
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="Ley2486.html" class="info-button">Ley 2486</a>
+                        <a href="ConceptoCascos.html" class="info-button" style="background-color: var(--primary-orange);">Concepto Uso de Casco</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 2 -->
+            <div class="section-card">
+                 <div class="p-6 md:p-8 flex-grow relative">
+                    <!-- Icono: Cancelar / Prueba -->
+                    <img src="https://img.icons8.com/fluency/96/cancel-2.png" class="h-48 w-48 card-icon-bg" alt="Icono cancelación/prueba"/>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-2" style="color: var(--primary-blue);">2. Gestión del Factor Humano</h2>
+                        <p class="text-lg font-semibold mb-4" style="color: var(--primary-orange);">Resolución 1843: Pruebas de Alcohol y SPA</p>
+                        <p class="text-slate-600 text-base mb-4">Las pruebas son una herramienta <strong class="font-bold">preventiva</strong>. Tu SGSST debe justificar su aplicación en trabajadores de riesgo.</p>
+                         <ul class="text-base space-y-2 text-slate-700 list-disc list-inside">
+                            <li>Realizadas por personal de salud con licencia SST.</li>
+                            <li>Un resultado positivo implica orientar al trabajador hacia su EPS.</li>
+                            <li>Los resultados son confidenciales y custodiados por el médico o IPS.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center p-6 bg-slate-50 border-t-2 border-slate-100">
+                    <a href="Resolucion1843.html" class="info-button">Consultar más</a>
+                </div>
+            </div>
+
+            <!-- Sección 3 -->
+            <div class="section-card">
+                 <div class="p-6 md:p-8 flex-grow relative">
+                    <!-- Icono: Cuenta verificada / Idoneidad -->
+                    <img src="https://img.icons8.com/fluency/96/verified-account.png" class="h-48 w-48 card-icon-bg" alt="Icono cuenta verificada"/>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-2" style="color: var(--primary-blue);">3. Idoneidad del Conductor</h2>
+                        <p class="text-lg font-semibold mb-4" style="color: var(--primary-orange);">Resolución CALE: Nuevos Estándares</p>
+                        <p class="text-slate-600 text-base mb-4">El nuevo proceso para obtener la licencia (CALE) te da una base sólida para la selección de personal y fortalece tu PESV.</p>
+                         <ul class="text-base space-y-2 text-slate-700 list-disc list-inside">
+                            <li><strong class="font-bold">Contratación más segura.</strong></li>
+                            <li><strong class="font-bold">Reducción de riesgos operativos.</strong></li>
+                            <li><strong class="font-bold">Capacitación más enfocada.</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center p-6 bg-slate-50 border-t-2 border-slate-100">
+                    <a href="CALE.html" class="info-button">Consultar más</a>
+                </div>
+            </div>
+
+            <!-- Sección 4 -->
+            <div class="section-card">
+                 <div class="p-6 md:p-8 flex-grow relative">
+                    <!-- Icono: Migración de datos -->
+                    <img src="https://img.icons8.com/fluency/96/data-migration.png" class="h-48 w-48 card-icon-bg" alt="Icono migración de datos"/>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-2" style="color: var(--primary-blue);">4. Novedades en el Reporte</h2>
+                        <p class="text-lg font-semibold mb-4" style="color: var(--primary-orange);">Resolución 14305: Transición al SINST</p>
+                        <p class="text-slate-600 text-base mb-4">El reporte del PESV ahora es obligatorio en la nueva plataforma <strong class="font-bold">SINST – VIGIA 2</strong>.</p>
+                         <ul class="text-base space-y-2 text-slate-700 list-disc list-inside">
+                            <li>La transición ya finalizó.</li>
+                            <li>Tu empresa es responsable de la veracidad de los datos.</li>
+                            <li>El incumplimiento puede acarrear sanciones.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center p-6 bg-slate-50 border-t-2 border-slate-100">
+                    <a href="Resolucion14305.html" class="info-button">Consultar más</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
