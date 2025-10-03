@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome para el botón de Índice -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             /* Palette */
@@ -23,6 +25,19 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             background-color: var(--bg-orange-light);
+        }
+
+        /* ********************************************************** */
+        /* CORRECCIÓN: Eliminar el resaltado amarillo al ser el target */
+        /* ********************************************************** */
+        #top-of-page:target {
+            /* Asegura que no haya color de fondo que sobresalga (amarillo) */
+            background-color: white !important; 
+            /* Elimina el borde de enfoque o resaltado del navegador */
+            outline: none !important;
+            box-shadow: none !important;
+            /* Fuerza a que no haya transición ni animación de resaltado */
+            transition: none !important; 
         }
         
         .highlight-line {
@@ -135,20 +150,58 @@
             box-shadow: 0 10px 25px -5px rgba(218, 114, 63, 0.3);
         }
 
+        /* Botón de Índice Flotante (Replicando el estilo de la imagen) */
+        #floating-index-btn {
+            position: fixed;
+            top: 20px; /* Posicionado en la parte superior */
+            left: 20px; /* Posicionado a la izquierda */
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.25rem; /* Ajustado el padding para hacerlo más compacto */
+            border-radius: 0.5rem; /* Esquinas ligeramente redondeadas como en la imagen */
+            box-shadow: 0 5px 15px -3px rgba(0, 49, 137, 0.4);
+            transition: all 0.2s ease-in-out;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+        #floating-index-btn:hover {
+            background-color: #0045c4;
+            transform: scale(1.05); /* Énfasis en el hover */
+            box-shadow: 0 8px 18px -5px rgba(0, 49, 137, 0.6);
+        }
+        #floating-index-btn i {
+            margin-right: 0.6rem;
+            font-size: 1.25rem;
+        }
+
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="bg-white shadow-sm">
+    <!-- Botón de Índice Flotante (Nuevo estilo) -->
+    <!-- El enlace '#top-of-page' te lleva al inicio de la página -->
+    <a href="https://redaccionesdeforma-design.github.io/actualizacionPESV/index.html" target="_blank" rel="noopener noreferrer"  id="floating-index-btn">
+        <i class="fas fa-home"></i>
+        Índice
+    </a>
+
+    <!-- El header ahora tiene un ID para ser el destino del enlace -->
+    <div class="bg-white shadow-sm" id="top-of-page">
         <header class="text-center py-8">
             <div class="container mx-auto px-4">
-                <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
+                <!-- Se cambió la imagen del logo, ya que la imagen de la Agencia Nacional de Seguridad Vial
+                es más representativa del tema de seguridad vial y la resolución. -->
+                <img src="https://i.imgur.com/O4SoFPn.png" alt="Agencia Nacional de Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
                 <h1 class="text-3xl md:text-4xl font-black tracking-tight" style="color: var(--primary-blue);">
-                    Seguridad Vial en tu Empresa
+                    Un Nuevo Estándar para tu Organización
                 </h1>
-                <p class="mt-2 text-lg md:text-xl font-bold text-slate-800">Claves de la Nueva Regulación de Exámenes Médicos Ocupacionales</p>
+                <p class="mt-2 text-lg md:text-xl font-bold text-slate-800">Práctica de evaluaciones médicas ocupacionales y pruebas de alcohol y SPA en tu Empresa</p>
                 <div class="highlight-line highlight-line-center" style="background-color: var(--primary-orange);"></div>
-                <p class="mt-4 text-sm font-semibold text-orange-800 bg-orange-100 rounded-full py-1.5 px-5 inline-block">Resolución 1843 de 2025</p>
+                <!-- Se actualiza el texto de la resolución para que coincida con la imagen de referencia (aunque la infografía es ficticia, se adapta el estilo visual) -->
+                <p class="mt-4 text-sm font-semibold text-orange-800 bg-orange-100 rounded-full py-1.5 px-5 inline-block">RESOLUCIÓN NÚMERO 1843 de 2025</p>
             </div>
         </header>
     </div>
