@@ -161,12 +161,47 @@
             background-color: #e2e8f0;
             color: var(--text-dark);
         }
+        
+        /* Estilo del botón de Índice Fijo (Home Button) - IMPLEMENTADO */
+        #index-button {
+            position: fixed;
+            top: 1.5rem; /* Ajuste la posición superior */
+            left: 1rem; /* Margen de 1rem a la izquierda de la pantalla */
+            z-index: 50; /* Asegurar que esté por encima del contenido */
+            background-color: var(--primary-blue); /* Color azul primario */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem; /* Bordes redondeados */
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 49, 137, 0.4);
+            transition: all 0.2s ease-in-out;
+            border: none;
+            text-decoration: none; /* Importante para que no parezca un enlace HTML normal */
+        }
+        #index-button:hover {
+            background-color: #004099; /* Azul ligeramente más oscuro al pasar el mouse */
+            transform: scale(1.05);
+        }
+        #index-button svg {
+            margin-right: 0.5rem;
+        }
+        /* Fin Estilo Botón Índice */
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- Botón de Índice (Fijo) con enlace externo correcto -->
+    <a id="index-button" href="https://redaccionesdeforma-design.github.io/actualizacionPESV/index.html" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Índice
+    </a>
+    <!-- Fin Botón de Índice -->
+
     <div class="bg-white shadow-sm">
-        <header class="container mx-auto p-4 sm:p-6 md:py-8 max-w-5xl text-center">
+        <header id="main-header" class="container mx-auto p-4 sm:p-6 md:py-8 max-w-5xl text-center">
             <img src="https://i.imgur.com/pcF6qAc.png" alt="Logo Movilidad Sostenible" class="h-32 md:h-36 w-auto object-contain mx-auto mb-6">
             <h1 class="text-4xl md:text-5xl font-black tracking-tight" style="color: var(--primary-blue);">
                 Ley 2486 de 2025: VELMPU
@@ -185,8 +220,11 @@
                     <div class="highlight-line"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <!-- Card 1: Uso Individual -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://img.icons8.com/plasticine/100/kick-scooter.png" alt="Patineta eléctrica" class="h-16 w-16 mx-auto mb-2"><h3 class="text-xl font-bold">Uso Individual</h3></div><div class="flip-card-back"><p class="font-semibold">Diseñados para <strong style="color: var(--primary-orange);">una sola persona</strong>.</p></div></div></div>
+                    <!-- Card 2: Motor Eléctrico (Interactive Info) -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://img.icons8.com/fluency/96/lightning-bolt.png" alt="Motor Eléctrico" class="h-16 w-16 mx-auto mb-2"><h3 class="text-xl font-bold">Motor Eléctrico</h3><button class="info-indicator" data-title="Potencia del Motor" data-info="La potencia máxima de 1000W está pensada para ofrecer un equilibrio perfecto entre la eficiencia energética para la ciudad y un rendimiento adecuado, sin llegar a las velocidades de vehículos más grandes.">+</button></div><div class="flip-card-back"><p class="font-semibold">Potencia máxima de <strong style="color: var(--primary-orange);">1000W</strong>.</p></div></div></div>
+                    <!-- Card 3: Incluye Vehículos -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/CUg6MKB.jpeg" alt="Bicicleta Eléctrica" class="h-16 w-16 mx-auto mb-2"><h3 class="text-xl font-bold">Incluye Vehículos</h3></div><div class="flip-card-back"><p class="font-semibold"><strong style="color: var(--primary-orange);">Bicicletas con pedaleo asistido</strong> (eléctricas).</p></div></div></div>
                 </div>
             </section>
@@ -197,9 +235,13 @@
                     <div class="highlight-line"></div>
                 </div>
                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                    <!-- Norm 1: Age -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/VjzybcU.jpeg" alt="Edad Mínima" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Edad Mínima</h4></div><div class="flip-card-back"><p><strong style="color: var(--primary-orange);">16 años</strong> en vías.</p><p class="mt-1">De <strong style="color: var(--primary-orange);">12 a 16 años</strong> solo en ciclo-infraestructura.</p></div></div></div>
+                    <!-- Norm 2: Circulation -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://img.icons8.com/dusk/64/road.png" alt="Vías permitidas" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Circulación</h4></div><div class="flip-card-back"><ul class="text-sm space-y-1 text-left"><li class="font-medium">✓ Ciclo-infraestructura</li><li class="font-medium">✓ Carril derecho</li><li class="font-semibold mt-2">✗ <strong style="color: var(--accent-red);">PROHIBIDO</strong> en andenes y zonas peatonales.</li></ul></div></div></div>
+                    <!-- Norm 3: Speed -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/9JB8SxT.jpeg" alt="Velocidad" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Velocidad Máx.</h4></div><div class="flip-card-back"><p><strong style="color: var(--primary-orange);" class="block text-2xl">25 km/h</strong> en ciclorrutas.</p><p class="mt-2"><strong style="color: var(--primary-orange);" class="block text-2xl">40 km/h</strong> en vías.</p></div></div></div>
+                    <!-- Norm 4: Gear (Interactive Info) -->
                     <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/Sb1KoYd.jpeg" alt="Equipamiento" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Equipamiento</h4><button class="info-indicator" data-title="Equipamiento Obligatorio" data-info="El uso constante de casco, luces y prendas reflectivas no es solo una norma, es la principal barrera de seguridad activa y pasiva para prevenir lesiones graves en caso de un siniestro vial.">👁️</button></div><div class="flip-card-back"><ul class="text-sm space-y-1 text-left"><li class="font-medium">✓ <strong style="color: var(--primary-orange);">Casco</strong> ¡Siempre!</li><li class="font-medium">✓ <strong style="color: var(--primary-orange);">Reflectivos</strong> (Noche)</li><li class="font-medium">✓ <strong style="color: var(--primary-orange);">Luces</strong> ¡Siempre!</li></ul></div></div></div>
                  </div>
             </section>
@@ -216,6 +258,7 @@
                         <p class="text-4xl font-black" style="color: var(--accent-red);">6 SMLDV</p>
                     </div>
                     
+                    <!-- Sanctions List (Clickable to open modal) -->
                     <ul id="sanctions-list" class="space-y-2 flex-grow">
                         <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="No Usar Casco" data-impact="Un accidente sin casco puede causar incapacidades prolongadas, afectando la productividad y elevando los costos de pólizas de la empresa. Refleja un fallo en la cultura de autocuidado." data-control="Implementar políticas de seguridad vial que exijan el casco. Realizar campañas de concienciación y ofrecer incentivos para la compra de Elementos de Protección Personal (EPP)."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">No usar casco</span><span class="ml-auto bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Inmovilización</span></li>
                         <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="Conducir bajo efectos de Alcohol/Drogas" data-impact="Causa de despido y potencial responsable de accidentes fatales. Implica un riesgo legal y reputacional inmenso para la empresa." data-control="Política de cero tolerancia. Realizar pruebas aleatorias (dentro del marco legal) y campañas de prevención sobre los riesgos del consumo."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">Conducir ebrio/drogado</span><span class="ml-auto bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Inmovilización</span></li>
@@ -228,7 +271,9 @@
                 <section class="section-card p-6 md:p-8 text-center flex flex-col">
                     <h2 class="text-2xl font-bold text-slate-900 mb-4 flex-shrink-0">Tus Derechos</h2>
                     <div class="space-y-4 flex flex-col flex-grow justify-center">
+                        <!-- Right 1: Prelación (Interactive Info Button) -->
                         <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 flex-grow flex flex-col justify-center items-center"><h4 class="font-bold text-lg" style="color: var(--primary-blue);">Prelación en la Vía</h4><p class="text-base text-slate-600">Los demás vehículos deben darte prioridad.</p><button class="info-button pulse-button" data-title="Sobre la Prelación en Vía" data-info="Este derecho te reconoce como un actor vial prioritario junto a peatones y ciclistas. Significa que en intersecciones no señalizadas y otros escenarios, los vehículos más grandes deben cederte el paso, reconociendo tu vulnerabilidad.">+</button></div>
+                        <!-- Right 2: Safe Distance (Interactive Info Button) -->
                         <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 flex-grow flex flex-col justify-center items-center"><h4 class="font-bold text-lg" style="color: var(--primary-blue);">Distancia Segura</h4><p class="text-base text-slate-600">Al adelantar, deben mantener <strong class="font-black">1.50m</strong>.</p><button class="info-button pulse-button" data-title="Importancia del 1.50m" data-info="La distancia de 1.50 metros al adelantar no es arbitraria. Crea una 'burbuja' de seguridad que te protege de ráfagas de viento, movimientos inesperados del vehículo y te da espacio para maniobrar si encuentras un obstáculo en la vía.">+</button></div>
                     </div>
                 </section>
@@ -240,8 +285,11 @@
                     <div class="highlight-line"></div>
                 </div>
                 <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left text-base mt-6">
+                    <!-- Benefit 1 -->
                     <li class="flex items-start p-4 rounded-xl bg-white border"><span class="text-yellow-500 mr-3 mt-1 font-bold text-2xl">✓</span><div><strong class="font-bold" style="color: var(--primary-orange);">¡Sin Trámites!</strong><br>NO necesitas Matrícula, SOAT ni Licencia.</div></li>
+                    <!-- Benefit 2 -->
                     <li class="flex items-start p-4 rounded-xl bg-white border"><span class="text-yellow-500 mr-3 mt-1 font-bold text-2xl">✓</span><div><strong class="font-bold" style="color: var(--primary-orange);">Promoción</strong><br>Se impulsará su uso con campañas y beneficios.</div></li>
+                    <!-- Benefit 3 -->
                     <li class="flex items-start p-4 rounded-xl bg-white border"><span class="text-yellow-500 mr-3 mt-1 font-bold text-2xl">✓</span><div><strong class="font-bold" style="color: var(--primary-orange);">Más Económicos</strong><br>Se buscará reducir impuestos de importación.</div></li>
                 </ul>
             </section>
@@ -250,11 +298,17 @@
         <footer class="text-center mt-12 pt-8 border-t border-slate-200">
              <p class="text-2xl font-bold text-slate-800">¡Muévete seguro y de forma sostenible!</p>
              <p class="mt-2 text-sm text-slate-500 mb-4">Fuente: Ley 2486 de 2025, Congreso de la República de Colombia.</p>
-             <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/30055263" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-blue);">Consultar Ley Original</a>
+             <div class="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-4">
+                 <!-- Enlace Ley Original -->
+                 <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/30055263" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-blue);">Consultar Ley Original</a>
+                 <!-- Enlace PESV Complementario -->
+                 <a href="https://redaccionesdeforma-design.github.io/actualizacionPESV/index.html" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors bg-green-600 hover:bg-green-700">Recursos PESV</a>
+             </div>
         </footer>
     </div>
 
     <!-- Modals & Chatbot -->
+    <!-- Sanction Modal -->
     <div id="sanction-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto transform scale-95">
             <div class="p-6">
@@ -279,6 +333,7 @@
         </div>
     </div>
     
+    <!-- Info Modal -->
     <div id="info-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto transform scale-95">
             <div class="p-6">
@@ -294,9 +349,11 @@
         </div>
     </div>
     
+    <!-- Chatbot FAB (Floating Action Button) -->
     <button id="chat-fab" class="fixed bottom-6 right-6 text-white rounded-full p-4 shadow-lg transition-transform hover:scale-110 z-40" style="background-color: var(--primary-orange);">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 0 0 10-10c0-5.52-4.48-10-10-10S2 6.48 2 12c0 2.45 1.11 4.7 2.86 6.34.03.03.06.06.09.09l1.72 1.72c.58.58 1.52.58 2.1 0l1.4-1.4c.58-.58.58-1.52 0-2.1l-1.4-1.4c-.58-.58-1.52-.58-2.1 0L5.5 16.51c-1.28-1.3-2-3.07-2-4.93 0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7a6.96 6.96 0 0 1-2.92-.68"/><path d="m16 9-2.5 2.5"/><path d="m13.5 11.5 2.5 2.5"/><circle cx="12" cy="12" r="10"/></svg>
     </button>
+    <!-- Chatbot Window -->
     <div id="chat-window" class="hidden fixed bottom-24 right-6 w-full max-w-sm bg-white rounded-xl shadow-2xl flex flex-col h-[70vh] max-h-[500px] z-40">
         <div class="p-4 border-b bg-slate-100 rounded-t-xl">
             <div class="flex justify-between items-center">
@@ -319,18 +376,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Logic for flipping cards (information on hover/click)
             const flipCards = document.querySelectorAll('.flip-card');
             flipCards.forEach(card => {
                 card.addEventListener('click', (e) => {
+                    // Prevent flipping if clicking the info indicator button
                     if (!e.target.closest('.info-indicator') && !e.target.closest('.info-button')) {
                          card.classList.toggle('is-flipped');
                     }
                 });
             });
 
+            // Generic Modal Setup Function
             const setupModal = (modalId, triggerSelector, dataSetter) => {
                 const modal = document.getElementById(modalId);
                 const triggers = document.querySelectorAll(triggerSelector);
+                
+                // Attach click listeners to all triggers
                 triggers.forEach(trigger => {
                     trigger.addEventListener('click', (e) => {
                         e.stopPropagation();
@@ -338,6 +400,8 @@
                         openModal(modal);
                     });
                 });
+                
+                // Attach close listeners to close buttons and background
                 modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
                     btn.addEventListener('click', () => closeModal(modal));
                 });
@@ -346,6 +410,7 @@
                 });
             };
 
+            // Modal utility functions
             const openModal = (modal) => {
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modal.querySelector('.modal-content').classList.remove('scale-95');
@@ -356,17 +421,20 @@
                 modal.querySelector('.modal-content').classList.add('scale-95');
             };
 
+            // Setup Sanction Modal (for list items)
             setupModal('sanction-modal', '#sanctions-list li', (modal, trigger) => {
                 modal.querySelector('#sanction-modal-title').textContent = trigger.dataset.title;
                 modal.querySelector('#sanction-modal-impact').textContent = trigger.dataset.impact;
                 modal.querySelector('#sanction-modal-control').textContent = trigger.dataset.control;
             });
             
+            // Setup Info Modal (for plus/eye buttons)
             setupModal('info-modal', '.info-indicator, .info-button', (modal, trigger) => {
                 modal.querySelector('#info-modal-title').textContent = trigger.dataset.title;
                 modal.querySelector('#info-modal-text').textContent = trigger.dataset.info;
             });
 
+            // Chatbot Logic
             const chatFab = document.getElementById('chat-fab');
             const chatWindow = document.getElementById('chat-window');
             const closeChatBtn = document.getElementById('chat-close');
@@ -374,17 +442,22 @@
             const chatInput = document.getElementById('chat-input');
             const chatSendBtn = document.getElementById('chat-send');
 
+            // Toggle chat window visibility
             chatFab.addEventListener('click', () => chatWindow.classList.remove('hidden'));
             closeChatBtn.addEventListener('click', () => chatWindow.classList.add('hidden'));
 
+            // Function to add a message to the chat
             const addMessage = (text, sender) => {
                 const messageEl = document.createElement('div');
-                messageEl.className = `w-fit max-w-xs lg:max-w-sm p-3 rounded-xl ${sender === 'user' ? 'user-message self-end' : 'ai-message self-start'}`;
+                // FIX: Replaced template literal with standard concatenation to avoid SyntaxError
+                messageEl.className = "w-fit max-w-xs lg:max-w-sm p-3 rounded-xl " + (sender === 'user' ? 'user-message ml-auto' : 'ai-message mr-auto');
                 messageEl.textContent = text;
                 chatMessages.appendChild(messageEl);
+                // Scroll to the latest message
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             };
             
+            // Simple hardcoded response logic
             const getAiResponse = (message) => {
                 const m = message.toLowerCase();
                 if (m.includes('hola') || m.includes('saludos')) return '¡Hola! Soy Vial-E, tu asistente virtual sobre la Ley 2486. ¿En qué puedo ayudarte hoy?';
@@ -398,6 +471,7 @@
                 return 'No he entendido tu pregunta. Por favor, intenta reformularla usando palabras clave como "casco", "multas", "velocidad", "empresa", "edad" o "PESV".';
             };
             
+            // Handler for sending a message
             const handleSendMessage = () => {
                 const userText = chatInput.value.trim();
                 if (!userText) return;
@@ -411,14 +485,15 @@
                 }, 500);
             };
 
+            // Event listeners for chat input
             chatSendBtn.addEventListener('click', handleSendMessage);
             chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') handleSendMessage();
             });
 
+            // Initial message from AI when the page loads
             setTimeout(() => addMessage('¡Hola! Soy Vial-E. ¿Qué te gustaría saber sobre la Ley 2486 y su impacto en el PESV?', 'ai'), 500);
         });
     </script>
 </body>
 </html>
-
