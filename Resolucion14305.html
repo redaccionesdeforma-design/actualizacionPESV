@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Resolución 14305 de 2024 - Transición al SINST – VIGIA 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette */
+            --primary-orange: #da723f;
+            --primary-blue: #003189;
+            
+            /* UI Colors */
+            --text-dark: #1e293b;
+            --bg-orange-light: #FFF9F5;
+            --border-color: #fdeee7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-orange-light);
+        }
+        
+        .highlight-line {
+            height: 4px;
+            width: 80px;
+            background-color: var(--primary-blue);
+            margin: 0.5rem 0 0;
+        }
+        .highlight-line-center {
+            margin: 0.5rem auto 0;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(218, 114, 63, 0.1), 0 8px 10px -6px rgba(218, 114, 63, 0.1);
+        }
+        
+        /* Timeline */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            height: 18px;
+            width: 18px;
+            border-radius: 9999px;
+            background-color: white;
+            border: 4px solid var(--primary-blue);
+        }
+
+        /* Modal */
+        .modal { transition: opacity 0.3s ease, transform 0.3s ease; }
+        .modal .modal-content { 
+            transition: transform 0.3s ease;
+            border: 3px solid var(--primary-orange);
+            box-shadow: 0 10px 25px -5px rgba(218, 114, 63, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 49, 137, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 49, 137, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 49, 137, 0); }
+        }
+        .info-button {
+           display: inline-flex;
+           background-color: #EBF8FF;
+           color: var(--primary-blue);
+           padding: 0.5rem 1rem;
+           border-radius: 9999px;
+           font-weight: 600;
+           font-size: 0.875rem;
+           align-items: center;
+           cursor: pointer;
+           border: 1px solid #BEE3F8;
+           transition: all 0.2s ease-in-out;
+           animation: pulse 2.5s infinite;
+           box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .info-button:hover {
+            background-color: #dbeafe;
+            transform: scale(1.05);
+        }
+        .info-button span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-white shadow-sm">
+        <header class="text-center py-8">
+            <div class="container mx-auto px-4">
+                 <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
+                <h1 class="text-3xl md:text-4xl font-black tracking-tight" style="color: var(--primary-blue);">
+                    ¡Adiós al SISI/PESV, Bienvenido SINST – VIGIA 2!
+                </h1>
+                <p class="mt-2 text-lg md:text-xl font-bold text-slate-800">Lo que debes saber sobre la Resolución 14305 de 2024</p>
+                <div class="highlight-line highlight-line-center" style="background-color: var(--primary-orange);"></div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+        <main class="space-y-10 mt-8">
+            
+            <section class="section-card p-6 md:p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0">
+                        <img src="https://img.icons8.com/fluency/144/synchronize.png" alt="Transición de sistemas" class="h-36 w-36"/>
+                    </div>
+                    <div class="text-center md:text-left flex-1">
+                        <h2 class="text-3xl font-bold text-slate-900">El Gran Cambio</h2>
+                        <div class="highlight-line"></div>
+                        <p class="mt-4 text-slate-600 text-base">La Superintendencia de Transporte está modernizando sus sistemas. Todos los reportes del PESV ahora se realizarán en la nueva plataforma centralizada <strong style="color:var(--primary-orange);">SINST – VIGIA 2</strong> para un proceso más eficiente y transparente.</p>
+                        <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm">
+                            <p><strong style="color: var(--primary-blue);">¿A quiénes aplica?</strong> A todas las empresas vigiladas por la SuperTransporte: Empresas de Transporte de orden nacional y organismos de apoyo al transporte.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card p-6 md:p-8">
+                <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">Fechas Clave de la Transición</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <div class="relative pl-12">
+                    <div class="timeline-item pb-8">
+                        <div class="timeline-dot"></div>
+                        <p class="font-bold text-lg" style="color: var(--primary-blue);">Último día en SISI/PESV</p>
+                        <p class="text-2xl font-black text-slate-700">30 de Diciembre de 2024</p>
+                        <p class="text-slate-600 text-sm">Fecha límite para realizar reportes en la plataforma antigua.</p>
+                    </div>
+                    <div class="timeline-item pb-8">
+                        <div class="timeline-dot" style="border-color: var(--primary-orange)"></div>
+                        <p class="font-bold text-lg" style="color: var(--primary-blue);">Suspensión Temporal</p>
+                        <p class="text-2xl font-black text-slate-700">31 Dic 2024 - 8 Ene 2025</p>
+                        <p class="text-slate-600 text-sm">No se podrán hacer reportes mientras se migra la información al nuevo sistema.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="border-color: green;"></div>
+                        <p class="font-bold text-lg" style="color: var(--primary-blue);">Inicio en SINST – VIGIA 2</p>
+                        <p class="text-2xl font-black text-slate-700">A partir del 31 de Diciembre de 2024</p>
+                        <p class="text-slate-600 text-sm">Se reanudan los reportes exclusivamente en la nueva plataforma.</p>
+                    </div>
+                </div>
+                 <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200 text-center text-sm">
+                    <p><strong>¡No te preocupes!</strong> La SuperTransporte migrará la información que ya habías reportado en el SISI/PESV al nuevo sistema.</p>
+                </div>
+            </section>
+            
+            <section class="section-card p-6 md:p-8">
+                 <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">¿Qué Cambia en el Reporte del PESV?</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                        <img src="https://img.icons8.com/fluency/144/online-support.png" alt="Formulario digital" class="h-36 w-36 mx-auto"/>
+                    </div>
+                    <div>
+                        <p class="mb-4 text-slate-600 text-base">El proceso se mantiene, pero ahora a través del nuevo módulo <strong class="font-semibold" style="color:var(--primary-orange)">"Seguimiento e Implementación del PESV"</strong> dentro del SINST.</p>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-orange-50 rounded-lg border border-orange-200"><strong class="font-semibold text-orange-800">Autogestión:</strong> Las empresas deben preparar y reportar periódicamente su información.</div>
+                            <div class="p-3 bg-orange-50 rounded-lg border border-orange-200"><strong class="font-semibold text-orange-800">Periodicidad:</strong> Los plazos se mantienen según el "ANEXO TÉCNICO-MÓDULO PESV".</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                 <section class="section-card p-6 md:p-8 text-center flex flex-col justify-between">
+                     <img src="https://img.icons8.com/fluency/96/agreement.png" alt="Responsabilidad" class="h-20 w-20 mx-auto mb-2"/>
+                     <h2 class="text-2xl font-bold text-slate-900 mb-4">Tu Responsabilidad</h2>
+                     <button class="info-button" id="responsibility-btn"><span>+</span>Ver detalles</button>
+                </section>
+                <section class="section-card p-6 md:p-8 text-center flex flex-col justify-between">
+                    <img src="https://img.icons8.com/fluency/96/scales.png" alt="Sanciones" class="h-20 w-20 mx-auto mb-2"/>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Sanciones</h2>
+                    <button class="info-button" id="sanctions-btn"><span>+</span>Ver detalles</button>
+                </section>
+             </div>
+             
+             <section class="section-card p-6 bg-blue-50 border-blue-200">
+                <div class="flex items-center">
+                    <div class="mr-4 flex-shrink-0">
+                        <img src="https://img.icons8.com/fluency/96/administrative-tools.png" alt="Operadores tecnológicos" class="h-16 w-16"/>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg" style="color: var(--primary-blue);">Operadores Tecnológicos</h3>
+                        <p class="text-sm text-slate-600">Existen, pero es <strong class="font-semibold">potestad de la empresa</strong> usarlos o no para el registro de su información en la plataforma.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
+             <p class="text-2xl font-bold text-slate-800">¡Modernízate y cumple con la nueva regulación!</p>
+             <p class="mt-2 text-sm text-slate-500 mb-4">Asegura una transición exitosa al SINST – VIGIA 2.</p>
+             <div class="flex flex-wrap justify-center gap-4">
+                 <a href="https://www.supertransporte.gov.co/documentos/2025/enero/DelegaturaPU_10/2/14305.pdf" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-orange);">Consultar Resolución</a>
+                 <a href="https://transformaciondigital.supertransporte.gov.co/documentos/2025/legal/SINST/Anexo_Tecnico_14305-Modulo_registro_de_vigilados.pdf" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-blue);">Consultar Anexo Técnico</a>
+             </div>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+     <div id="info-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-2xl w-full max-w-lg mx-auto transform scale-95">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <h3 id="info-modal-title" class="text-xl font-bold" style="color: var(--primary-blue);"></h3>
+                    <button class="modal-close text-slate-400 hover:text-slate-800 transition-colors text-2xl">&times;</button>
+                </div>
+                <div id="info-modal-text" class="text-slate-700 text-base mt-4 space-y-2"></div>
+            </div>
+             <div class="bg-slate-50 px-6 py-3 text-right rounded-b-2xl border-t">
+                <button class="modal-close-btn bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors text-sm">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalData = {
+                'responsibility-btn': {
+                    title: 'Tu Responsabilidad',
+                    content: `<ul class="list-none space-y-3 text-base">
+                                <li class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200">
+                                    <img src="https://img.icons8.com/fluency/48/verified-account.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <div>
+                                        <strong style="color:var(--primary-blue)">Veracidad, Completitud y Actualización:</strong>
+                                        <p>La información debe ser siempre veraz. La plataforma SINST facilita la detección de inconsistencias.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start p-3 bg-red-50 rounded-lg border border-red-200">
+                                    <img src="https://img.icons8.com/fluency/48/cancel.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <div>
+                                        <strong class="text-red-700">Prohibido Manipular:</strong>
+                                        <p>Alterar la información para engañar u obstruir la supervisión es una falta grave.</p>
+                                    </div>
+                                </li>
+                            </ul>`
+                },
+                'sanctions-btn': {
+                    title: 'Sanciones por Incumplimiento',
+                    content: `<ul class="list-none space-y-3 text-base">
+                                <li class="flex items-start p-3 bg-orange-50 rounded-lg border border-orange-200">
+                                    <img src="https://img.icons8.com/fluency/48/warning-shield.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <div>
+                                        <strong style="color:var(--primary-orange)">Actuaciones Administrativas:</strong>
+                                        <p>El incumplimiento puede derivar en investigaciones formales, pliegos de cargos y multas económicas significativas.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200">
+                                    <img src="https://i.imgur.com/laW2BNA.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <div>
+                                        <strong style="color: var(--primary-blue)">Traslado a Autoridad Competente:</strong>
+                                        <p>Si se detectan violaciones a normas de tránsito, el caso será remitido a la autoridad correspondiente.</p>
+                                    </div>
+                                </li>
+                            </ul>`
+                }
+            };
+            const modal = document.getElementById('info-modal');
+            const modalTitle = document.getElementById('info-modal-title');
+            const modalText = document.getElementById('info-modal-text');
+
+            document.querySelectorAll('.info-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const data = modalData[button.id];
+                    if (data) {
+                        modalTitle.textContent = data.title;
+                        modalText.innerHTML = data.content;
+                        openModal(modal);
+                    }
+                });
+            });
+            const openModal = (modal) => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+            };
+            const closeModal = (modal) => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.add('scale-95');
+            };
+            modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+                btn.addEventListener('click', () => closeModal(modal));
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal(modal);
+            });
+        });
+    </script>
+</body>
+</html>
+

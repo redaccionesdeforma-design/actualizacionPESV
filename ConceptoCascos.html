@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Concepto Uso de Casco en Bicicletas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette */
+            --primary-orange: #da723f;
+            --primary-blue: #003189;
+            
+            /* UI Colors */
+            --text-dark: #1e293b;
+            --bg-orange-light: #FFF9F5;
+            --border-color: #fdeee7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-orange-light);
+        }
+        
+        .highlight-line {
+            height: 4px;
+            width: 80px;
+            background-color: var(--primary-blue);
+            margin: 0.5rem 0 0;
+        }
+        .highlight-line-center {
+            margin: 0.5rem auto 0;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-white shadow-sm">
+        <header class="text-center py-8">
+            <div class="container mx-auto px-4">
+                <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Colombia Pedalea" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
+                <h1 class="text-3xl md:text-4xl font-black tracking-tight" style="color: var(--primary-blue);">
+                    Uso de Casco (bicicletas SIN asistente de pedal NI eléctricas) y Portabicicletas
+                </h1>
+                <p class="mt-2 text-lg md:text-xl font-bold text-slate-800">Concepto del Ministerio de Transporte</p>
+                <div class="highlight-line highlight-line-center" style="background-color: var(--primary-orange);"></div>
+                <p class="mt-4 text-sm font-semibold text-orange-800 bg-orange-100 rounded-full py-1.5 px-5 inline-block">Radicado No. 20253030549042 del 01 de abril de 2025</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+        <main class="space-y-10 mt-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="section-card p-6 text-center">
+                    <img src="https://i.imgur.com/Sb1KoYd.png" alt="Casco de ciclista" class="h-20 w-20 mx-auto mb-4"/>
+                    <h2 class="text-xl font-bold mb-3" style="color: var(--primary-blue);">Punto Clave 1: ¿Casco Obligatorio?</h2>
+                    <ul class="text-sm space-y-3 text-slate-600 text-left">
+                        <li class="flex items-start"><span class="mr-2 mt-1 text-orange-400">▪</span><span>Alcaldías locales pueden hacerlo obligatorio por seguridad.</span></li>
+                        <li class="flex items-start"><span class="mr-2 mt-1 text-orange-400">▪</span><span>MinTransporte <strong class="font-semibold">recomienda su uso siempre</strong> para reducir lesiones.</span></li>
+                         <li class="flex items-start"><span class="mr-2 mt-1 font-bold text-red-500">!</span><span>No usarlo donde es obligatorio puede causar <strong class="font-semibold">inmovilización</strong>.</span></li>
+                    </ul>
+                </div>
+
+                <div class="section-card p-6 text-center">
+                    <img src="https://img.icons8.com/fluency/96/rules.png" alt="Normas técnicas" class="h-20 w-20 mx-auto mb-4"/>
+                    <h2 class="text-xl font-bold mb-3" style="color: var(--primary-blue);">Punto Clave 2: Norma de Cascos</h2>
+                    <ul class="text-sm space-y-3 text-slate-600 text-left">
+                        <li class="flex items-start"><span class="mr-2 mt-1 text-orange-400">▪</span><span>El Gobierno Nacional está <strong class="font-semibold">desarrollando la reglamentación</strong> técnica.</span></li>
+                        <li class="flex items-start"><span class="mr-2 mt-1 text-orange-400">▪</span><span>Mientras tanto, se aceptan cascos con <strong class="font-semibold">certificaciones internacionales</strong>.</span></li>
+                    </ul>
+                </div>
+
+                <div class="section-card p-6 text-center">
+                    <img src="https://img.icons8.com/fluency/96/car.png" alt="Carro con portabicicletas" class="h-20 w-20 mx-auto mb-4"/>
+                    <h2 class="text-xl font-bold mb-3" style="color: var(--primary-blue);">Punto Clave 3: Portabicicletas</h2>
+                     <ul class="text-sm space-y-3 text-slate-600 text-left">
+                        <li class="flex items-start"><span class="mr-2 mt-1 text-green-500">✓</span><span><strong class="font-semibold">Sí, se pueden usar</strong> en vehículos particulares. No hay prohibición expresa.</span></li>
+                        <li class="flex items-start"><span class="mr-2 mt-1 font-bold text-red-500">!</span><span><strong class="font-semibold">¡CUIDADO!</strong> No debe obstruir visibilidad ni tapar las placas del vehículo.</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="section-card p-6 md:p-8">
+                <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">Implicaciones para la Seguridad Vial Empresarial (PESV)</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+                    <div class="text-center">
+                         <div class="p-4 rounded-full bg-blue-100 inline-block mb-3">
+                            <img src="https://img.icons8.com/fluency/48/briefcase.png" alt="Maletín de trabajo" class="h-10 w-10"/>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2" style="color: var(--primary-blue);">Movilidad Laboral</h3>
+                        <p class="text-sm text-slate-600">La empresa debe capacitar sobre la <strong class="font-semibold">normatividad local</strong> del casco y el uso correcto de EPP en desplazamientos laborales.</p>
+                    </div>
+                     <div class="text-center">
+                        <div class="p-4 rounded-full bg-blue-100 inline-block mb-3">
+                            <img src="https://img.icons8.com/fluency/48/home.png" alt="Casa" class="h-10 w-10"/>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2" style="color: var(--primary-blue);">Desplazamientos Ordinarios</h3>
+                        <p class="text-sm text-slate-600">Fomentar el uso de <strong class="font-semibold">cascos certificados</strong> (incluso si no es obligatorio) como parte de la cultura de autocuidado del empleado.</p>
+                    </div>
+                     <div class="text-center">
+                        <div class="p-4 rounded-full bg-blue-100 inline-block mb-3">
+                           <img src="https://img.icons8.com/fluency/48/collaboration.png" alt="Colaboración" class="h-10 w-10"/>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2" style="color: var(--primary-blue);">Respeto en la Vía</h3>
+                        <p class="text-sm text-slate-600">Capacitar a conductores de vehículos de la empresa sobre el <strong class="font-semibold">respeto al ciclista</strong> y su derecho a la vía, reforzando la protección a actores viales vulnerables.</p>
+                    </div>
+                 </div>
+            </section>
+            
+            <section class="section-card p-6 bg-blue-50 border-blue-200">
+                <div class="flex items-center">
+                    <div class="mr-4 flex-shrink-0">
+                        <svg class="h-12 w-12 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg" style="color: var(--primary-blue);">Aclaración Importante</h3>
+                        <p class="text-sm text-slate-600">Este concepto tiene un carácter <strong class="font-semibold">orientador e informativo</strong>; no es una ley, sino una interpretación oficial de las normas vigentes.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
+             <p class="text-2xl font-bold text-slate-800">¡Infórmate, protégete y rueda con responsabilidad!</p>
+        </footer>
+    </div>
+</body>
+</html>
+

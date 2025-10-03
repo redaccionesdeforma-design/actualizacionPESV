@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: CALE - Nuevo Estándar para Conductores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette */
+            --primary-orange: #da723f;
+            --primary-blue: #003189;
+            
+            /* UI Colors */
+            --text-dark: #1e293b;
+            --bg-orange-light: #FFF9F5;
+            --border-color: #fdeee7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-orange-light);
+        }
+        
+        .highlight-line {
+            height: 4px;
+            width: 80px;
+            background-color: var(--primary-blue);
+            margin: 0.5rem 0 0;
+        }
+        .highlight-line-center {
+            margin: 0.5rem auto 0;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(218, 114, 63, 0.1), 0 8px 10px -6px rgba(218, 114, 63, 0.1);
+        }
+        
+        /* Modal */
+        .modal { transition: opacity 0.3s ease, transform 0.3s ease; }
+        .modal .modal-content { 
+            transition: transform 0.3s ease;
+            border: 3px solid var(--primary-orange);
+            box-shadow: 0 10px 25px -5px rgba(218, 114, 63, 0.3);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 49, 137, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 49, 137, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 49, 137, 0); }
+        }
+        .info-button {
+           display: inline-flex;
+           background-color: #EBF8FF;
+           color: var(--primary-blue);
+           padding: 0.5rem 1rem;
+           border-radius: 9999px;
+           font-weight: 600;
+           font-size: 0.875rem;
+           align-items: center;
+           cursor: pointer;
+           border: 1px solid #BEE3F8;
+           transition: all 0.2s ease-in-out;
+           animation: pulse 2.5s infinite;
+           box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .info-button:hover {
+            background-color: #dbeafe;
+            transform: scale(1.05);
+        }
+        .info-button span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-white shadow-sm">
+        <header class="text-center py-8">
+            <div class="container mx-auto px-4">
+                 <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
+                <h1 class="text-3xl md:text-4xl font-black tracking-tight" style="color: var(--primary-blue);">
+                    Un Nuevo Estándar para tus Conductores
+                </h1>
+                <p class="mt-2 text-lg md:text-xl font-bold text-slate-800">Cómo la Resolución sobre los CALE Fortalece la Seguridad Vial de tu Empresa</p>
+                <div class="highlight-line highlight-line-center" style="background-color: var(--primary-orange);"></div>
+                <p class="mt-4 text-sm font-semibold text-orange-800 bg-orange-100 rounded-full py-1.5 px-5 inline-block">RESOLUCIÓN NÚMERO 20253040037125</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+        <main class="space-y-10 mt-8">
+            
+            <section class="section-card p-6 md:p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0">
+                        <img src="https://img.icons8.com/fluency/144/verified-account.png" alt="Licencia Verificada" class="h-36 w-36"/>
+                    </div>
+                    <div class="text-center md:text-left flex-1">
+                        <h2 class="text-3xl font-bold text-slate-900">¿Qué son los CALE y por qué importan?</h2>
+                        <div class="highlight-line"></div>
+                        <p class="mt-4 text-slate-600 text-base">Los <strong style="color:var(--primary-orange);">Centros de Apoyo Logístico de Evaluación (CALE)</strong> establecen un sistema más riguroso y estandarizado para obtener la licencia de conducción, garantizando la idoneidad de los conductores que contratas.</p>
+                        <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm">
+                            <p><strong style="color: var(--primary-blue);">Impacto en tu PESV:</strong> Esta norma fortalece directamente el pilar de <strong class="font-semibold">Gestión del Factor Humano</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card p-6 md:p-8">
+                <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">De la Teoría a la Práctica Real: Las 3 Evaluaciones Clave</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <img src="https://img.icons8.com/fluency/96/brain.png" class="h-20 w-20 mx-auto mb-2"/>
+                        <h3 class="font-bold text-xl mb-2" style="color: var(--primary-blue);">1. Prueba Teórica</h3>
+                        <p class="text-slate-600 text-sm">Evalúa conocimientos en normas, movilidad segura, el vehículo y señalización.</p>
+                        <button class="info-button mt-4" id="teorica-btn"><span>+</span>Para tu empresa</button>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.imgur.com/HWINYzv.png" class="h-20 w-20 mx-auto mb-2"/>
+                        <h3 class="font-bold text-xl mb-2" style="color: var(--primary-blue);">2. Prueba de Destreza</h3>
+                        <p class="text-slate-600 text-sm">Evalúa la habilidad para maniobrar el vehículo sin riesgo en un entorno controlado.</p>
+                        <button class="info-button mt-4" id="destreza-btn"><span>+</span>Para tu empresa</button>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://img.icons8.com/fluency/96/road.png" class="h-20 w-20 mx-auto mb-2"/>
+                        <h3 class="font-bold text-xl mb-2" style="color: var(--primary-blue);">3. Prueba en Vía Pública</h3>
+                        <p class="text-slate-600 text-sm">Evalúa la interacción real con otros actores viales y la conducción segura en el tráfico.</p>
+                        <button class="info-button mt-4" id="via-publica-btn"><span>+</span>Para tu empresa</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section-card p-6 md:p-8">
+                 <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">Beneficio Directo para tu PESV</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="text-center p-4">
+                        <img src="https://img.icons8.com/fluency/96/commercial-development-management.png" alt="Contratación" class="h-16 w-16 mx-auto mb-2"/>
+                        <h4 class="font-bold text-lg" style="color: var(--primary-blue);">Contratación más Confiable</h4>
+                        <p class="text-sm text-slate-600">Certeza de que los nuevos conductores poseen las habilidades técnicas y el conocimiento normativo mínimo.</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <img src="https://i.imgur.com/jazobXu.png" alt="Reducción de riesgo" class="h-16 w-16 mx-auto mb-2"/>
+                        <h4 class="font-bold text-lg" style="color: var(--primary-blue);">Reducción del Riesgo</h4>
+                        <p class="text-sm text-slate-600">Menor probabilidad de siniestros relacionados con errores humanos, impactando positivamente tus indicadores.</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <img src="https://img.icons8.com/fluency/96/e-learning.png" alt="Capacitación" class="h-16 w-16 mx-auto mb-2"/>
+                        <h4 class="font-bold text-lg" style="color: var(--primary-blue);">Capacitación Enfocada</h4>
+                        <p class="text-sm text-slate-600">Permite que tu plan de formación se concentre en riesgos específicos de tu operación.</p>
+                    </div>
+                </div>
+            </section>
+             
+             <section class="section-card p-6 bg-blue-50 border-blue-200">
+                <div class="flex items-center">
+                    <div class="mr-4 flex-shrink-0">
+                        <img src="https://img.icons8.com/fluency/96/search.png" alt="Monitoreo" class="h-16 w-16"/>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg" style="color: var(--primary-blue);">Un Sistema en Constante Evaluación</h3>
+                        <p class="text-sm text-slate-600">La ANSV evaluará el impacto de estos exámenes y publicará anualmente el promedio de calificación por CEA, dándote una herramienta más para evaluar la calidad de la formación de tus candidatos.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
+             <p class="text-2xl font-bold text-slate-800">¡Contrata con confianza, opera con seguridad!</p>
+             <p class="mt-2 text-sm text-slate-500 mb-4">Fortalece tu PESV con el nuevo estándar de evaluación de conductores.</p>
+             <a href="https://mintransporte.gov.co/info/mintransporte/media/anexos/Cm0eM2qD.pdf" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-orange);">Consultar Resolución</a>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+     <div id="info-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-2xl w-full max-w-lg mx-auto transform scale-95">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <h3 id="info-modal-title" class="text-xl font-bold" style="color: var(--primary-blue);"></h3>
+                    <button class="modal-close text-slate-400 hover:text-slate-800 transition-colors text-2xl">&times;</button>
+                </div>
+                <div id="info-modal-text" class="text-slate-700 text-base mt-4 space-y-2"></div>
+            </div>
+             <div class="bg-slate-50 px-6 py-3 text-right rounded-b-2xl border-t">
+                <button class="modal-close-btn bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors text-sm">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalData = {
+                'teorica-btn': {
+                    title: 'Beneficio: Prueba Teórica',
+                    content: `<div class="p-4 bg-blue-50 rounded-lg border border-blue-200 flex items-start text-base">
+                                <img src="https://img.icons8.com/fluency/48/knowledge-sharing.png" class="h-12 w-12 mr-4 flex-shrink-0"/>
+                                <p>Asegura que tus conductores tienen una base sólida sobre comportamiento seguro, normas y señalización, reduciendo errores por desconocimiento.</p>
+                              </div>`
+                },
+                'destreza-btn': {
+                    title: 'Beneficio: Prueba de Destreza',
+                    content: `<div class="p-4 bg-green-50 rounded-lg border border-green-200 flex items-start text-base">
+                                <img src="https://i.imgur.com/tjGWDoH.png" class="h-12 w-12 mr-4 flex-shrink-0"/>
+                                <p>Garantiza que el conductor domina maniobras críticas en un entorno seguro. Para vehículos de carga, esto incluye estacionamiento, reversa en curva y manejo de remolques, minimizando el riesgo de incidentes por impericia.</p>
+                              </div>`
+                },
+                'via-publica-btn': {
+                    title: 'Beneficio: Prueba en Vía Pública',
+                    content: `<div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200 flex items-start text-base">
+                                <img src="https://img.icons8.com/fluency/48/traffic-jam.png" class="h-12 w-12 mr-4 flex-shrink-0"/>
+                                <p>Confirma que el conductor puede interactuar de forma segura y cortés en el tráfico real, anticipando riesgos y protegiendo a otros actores viales, lo que es clave para la imagen y seguridad de tu empresa.</p>
+                              </div>`
+                }
+            };
+            const modal = document.getElementById('info-modal');
+            const modalTitle = document.getElementById('info-modal-title');
+            const modalText = document.getElementById('info-modal-text');
+
+            document.querySelectorAll('.info-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const data = modalData[button.id];
+                    if (data) {
+                        modalTitle.textContent = data.title;
+                        modalText.innerHTML = data.content;
+                        openModal(modal);
+                    }
+                });
+            });
+            const openModal = (modal) => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+            };
+            const closeModal = (modal) => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.add('scale-95');
+            };
+            modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+                btn.addEventListener('click', () => closeModal(modal));
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal(modal);
+            });
+        });
+    </script>
+</body>
+</html>
+

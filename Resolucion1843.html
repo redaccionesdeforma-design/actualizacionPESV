@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Resolución 1843 de 2025 - Exámenes Médicos Ocupacionales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette */
+            --primary-orange: #da723f;
+            --primary-blue: #003189;
+            
+            /* UI Colors */
+            --text-dark: #1e293b;
+            --bg-orange-light: #FFF9F5;
+            --border-color: #fdeee7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-orange-light);
+        }
+        
+        .highlight-line {
+            height: 4px;
+            width: 80px;
+            background-color: var(--primary-blue);
+            margin: 0.5rem 0 0;
+        }
+        .highlight-line-center {
+            margin: 0.5rem auto 0;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Flip Card Styles */
+        .flip-card {
+            perspective: 1000px;
+            min-height: 150px;
+            cursor: pointer;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 15px -2px rgba(218, 114, 63, 0.08);
+            border-radius: 1rem;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 1rem;
+            border: 1px solid #fdeee7;
+            text-align: center;
+        }
+        .flip-card-front {
+            background-color: #f0f5ff;
+        }
+        .flip-card-back {
+            background-color: #e0eaff; 
+            transform: rotateY(180deg);
+        }
+
+        /* Interactive elements */
+        .info-button {
+           display: inline-flex;
+           background-color: #fffbeb;
+           color: #ca8a04;
+           padding: 0.5rem 1rem;
+           border-radius: 9999px;
+           font-weight: 600;
+           font-size: 0.875rem;
+           align-items: center;
+           cursor: pointer;
+           border: 1px solid #fde68a;
+           transition: all 0.2s ease-in-out;
+           animation: pulse 2.5s infinite;
+        }
+        .info-button:hover {
+            background-color: #fef3c7;
+            transform: scale(1.05);
+        }
+        .info-button span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--primary-orange);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(218, 114, 63, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(218, 114, 63, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(218, 114, 63, 0); }
+        }
+
+        /* Modal */
+        .modal { transition: opacity 0.3s ease, transform 0.3s ease; }
+        .modal .modal-content { 
+            transition: transform 0.3s ease;
+            border: 3px solid var(--primary-orange);
+            box-shadow: 0 10px 25px -5px rgba(218, 114, 63, 0.3);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-white shadow-sm">
+        <header class="text-center py-8">
+            <div class="container mx-auto px-4">
+                <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
+                <h1 class="text-3xl md:text-4xl font-black tracking-tight" style="color: var(--primary-blue);">
+                    Seguridad Vial en tu Empresa
+                </h1>
+                <p class="mt-2 text-lg md:text-xl font-bold text-slate-800">Claves de la Nueva Regulación de Exámenes Médicos Ocupacionales</p>
+                <div class="highlight-line highlight-line-center" style="background-color: var(--primary-orange);"></div>
+                <p class="mt-4 text-sm font-semibold text-orange-800 bg-orange-100 rounded-full py-1.5 px-5 inline-block">Resolución 1843 de 2025</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+        <main class="space-y-10 mt-8">
+            
+            <section class="section-card p-6 md:p-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="text-center md:text-left flex-1">
+                        <h2 class="text-3xl font-bold text-slate-900">Tolerancia Cero al Riesgo: Pruebas de Alcohol y SPA</h2>
+                        <div class="highlight-line"></div>
+                        <p class="mt-4 text-slate-600 text-base">Se pueden aplicar pruebas a trabajadores en actividades de riesgo para ellos o terceros, siempre que esté <strong class="font-semibold">justificado en el SGSST.</strong></p>
+                        <div class="mt-4">
+                             <button class="info-button" id="justificacion-btn"><span>+</span>¿Cuándo son válidas?</button>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="https://i.imgur.com/6zcoiRR.png" alt="Prohibido alcohol y drogas" class="h-32 w-32"/>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-6">
+                    <h3 class="font-bold text-center text-lg mb-4" style="color: var(--primary-blue);">¿Quiénes están sujetos a pruebas sin autorización previa?</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center text-base">
+                        <div><img src="https://img.icons8.com/fluency/48/truck.png" alt="Conductor" class="h-12 w-12 mx-auto mb-1"/><p>Conductores</p></div>
+                        <div><img src="https://i.imgur.com/jrVK1gA.png" alt="Operario" class="h-12 w-12 mx-auto mb-1"/><p>Pilotos y Operarios</p><button class="text-sm text-blue-600 font-semibold" id="operarios-btn">(Ver más)</button></div>
+                        <div><img src="https://img.icons8.com/fluency/48/gas-mask.png" alt="Sustancias peligrosas" class="h-12 w-12 mx-auto mb-1"/><p>Manipuladores de Sustancias Peligrosas</p></div>
+                        <div><img src="https://img.icons8.com/fluency/48/gun.png" alt="Armas" class="h-12 w-12 mx-auto mb-1"/><p>Portadores de Armas</p></div>
+                        <div><img src="https://i.imgur.com/xG2HBvU.png" alt="Profesional de la salud" class="h-12 w-12 mx-auto mb-1"/><p>Profesionales de la salud</p></div>
+                        <div><img src="https://img.icons8.com/fluency/48/airport.png" alt="Controlador aéreo" class="h-12 w-12 mx-auto mb-1"/><p>Controladores Aéreos</p></div>
+                        <div><img src="https://i.imgur.com/7Q6l52i.png" alt="Trabajador de alto riesgo" class="h-12 w-12 mx-auto mb-1"/><p>Trabajadores Riesgo IV y V</p></div>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-6 grid md:grid-cols-2 gap-6">
+                     <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="https://i.imgur.com/0TdKfvj.png" class="h-12 w-12 mx-auto mb-2" alt="Objetivo"/>
+                                <h4 class="font-bold text-lg text-blue-800">¿Cuál es el objetivo?</h4>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="text-base">Su carácter es <strong>preventivo</strong>, buscando evitar accidentes de trabajo y enfermedades laborales.</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="flip-card">
+                        <div class="flip-card-inner">
+                             <div class="flip-card-front">
+                                <img src="https://i.imgur.com/HCfh8qM.png" class="h-12 w-12 mx-auto mb-2" alt="Resultado Positivo"/>
+                                <h4 class="font-bold text-lg text-blue-800">¿Y si da positivo?</h4>
+                             </div>
+                             <div class="flip-card-back">
+                                <p class="text-base">El empleador debe orientar al trabajador para que inicie un tratamiento vía su EAPB (EPS). Los resultados son <strong>confidenciales</strong>.</p>
+                             </div>
+                        </div>
+                     </div>
+                </div>
+                 <div class="mt-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
+                    <h4 class="font-bold text-orange-800">Responsabilidad Clave del Empleador</h4>
+                    <ul class="text-base text-slate-600 list-disc list-inside mt-2 space-y-1">
+                        <li>Implementar y justificar un programa de prevención de consumo de alcohol y drogas.</li>
+                        <li>Incluir en el SGSST campañas de prevención del alcoholismo, tabaquismo y farmacodependencia.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section-card p-6 md:p-8">
+                <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">Exámenes Médicos Ocupacionales para la Seguridad Vial</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <p class="mb-6 text-slate-600 text-base">Las evaluaciones médicas son clave para garantizar que los trabajadores estén en condiciones de desempeñar sus labores de forma segura.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="flip-card" style="min-height: 180px;">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="https://i.imgur.com/1h7ovkB.png" class="h-16 w-16 mx-auto mb-2" alt="Pre-ingreso"/><h4 class="font-bold text-lg text-blue-800">Pre-ingreso</h4></div>
+                            <div class="flip-card-back"><p class="text-base">Determina si el trabajador es <strong>apto</strong> para las demandas del cargo antes de contratarlo.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" style="min-height: 180px;">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="https://img.icons8.com/fluency/96/calendar.png" class="h-16 w-16 mx-auto mb-2" alt="Periódicas"/><h4 class="font-bold text-lg text-blue-800">Periódicas</h4></div>
+                            <div class="flip-card-back"><p class="text-base">Monitorean la salud del trabajador según los <strong>riesgos</strong> a los que está expuesto.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" style="min-height: 180px;">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="https://i.imgur.com/p24cxsK.png" class="h-16 w-16 mx-auto mb-2" alt="Post-incapacidad"/><h4 class="font-bold text-lg text-blue-800">Post-incapacidad</h4></div>
+                            <div class="flip-card-back"><p class="text-base"><strong>Obligatoria</strong> después de incapacidades de <strong>30 días o más</strong> para asegurar un retorno seguro.</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" style="min-height: 180px;">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="https://img.icons8.com/fluency/96/return.png" class="h-16 w-16 mx-auto mb-2" alt="Retorno laboral"/><h4 class="font-bold text-lg text-blue-800">Por Retorno Laboral</h4></div>
+                            <div class="flip-card-back"><p class="text-base">Se realiza si el trabajador estuvo ausente por <strong>más de 90 días</strong> por causas no médicas.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                 <section class="section-card p-6 md:p-8 text-center">
+                    <img src="https://i.imgur.com/EDfE1Eb.png" alt="Icono de empleador" class="h-16 w-16 mx-auto mb-2"/>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Responsabilidades del Empleador</h2>
+                    <button class="info-button" id="employer-resp-btn"><span>+</span>Ver Responsabilidades</button>
+                </section>
+                <section class="section-card p-6 md:p-8 text-center">
+                    <img src="https://i.imgur.com/nkJizDR.png" alt="Icono de trabajador" class="h-16 w-16 mx-auto mb-2"/>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Responsabilidades del Trabajador</h2>
+                    <button class="info-button" id="worker-resp-btn"><span>+</span>Ver Responsabilidades</button>
+                </section>
+             </div>
+             
+             <section class="section-card p-6 md:p-8">
+                <div class="text-left mb-6">
+                    <h2 class="text-3xl font-bold text-slate-900">¿Quiénes Pueden Realizar las Pruebas?</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                 <p class="mt-4 text-slate-600 text-base">La toma de pruebas de alcoholemia y sustancias psicoactivas debe ser realizada por personal de salud con <strong class="font-semibold">Licencia de SST vigente</strong>.</p>
+                 <div class="text-center mt-4 flex flex-wrap justify-center gap-4">
+                     <button class="info-button" id="personal-btn"><span>+</span>Personal Autorizado</button>
+                     <button class="info-button" id="calidad-btn"><span>+</span>Requisitos de Calidad</button>
+                     <button class="info-button" id="custodia-btn"><span>+</span>Custodia y Reserva</button>
+                 </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
+             <p class="text-2xl font-bold text-slate-800">¡Infórmate, protégete y trabaja con responsabilidad!</p>
+             <p class="mt-2 text-sm text-slate-500 mb-4">Este es un resumen informativo. Para más detalles, consulta directamente la Resolución 1843 de 2025.</p>
+             <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Resolucion/30054873" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-blue);">Consultar Resolución</a>
+        </footer>
+    </div>
+    
+    <!-- Modals -->
+    <div id="info-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-2xl w-full max-w-lg mx-auto transform scale-95">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <h3 id="info-modal-title" class="text-xl font-bold" style="color: var(--primary-blue);"></h3>
+                    <button class="modal-close text-slate-400 hover:text-slate-800 transition-colors text-2xl">&times;</button>
+                </div>
+                <div id="info-modal-text" class="text-slate-700 text-base mt-4 space-y-2"></div>
+            </div>
+             <div class="bg-slate-50 px-6 py-3 text-right rounded-b-2xl border-t">
+                <button class="modal-close-btn bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors text-sm">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalData = {
+                'justificacion-btn': {
+                    title: 'Justificación y Objetivo de las Pruebas',
+                    content: `<div class="p-4 bg-blue-50 rounded-lg border border-blue-200 flex items-start text-base">
+                                <img src="https://img.icons8.com/fluency/48/task-completed.png" class="h-12 w-12 mr-4 flex-shrink-0"/>
+                                <p>Las pruebas de alcoholemia y sustancias psicoactivas son <strong>PREVENTIVAS</strong>, no punitivas. Su objetivo es evitar accidentes y enfermedades laborales. Para ser válidas, deben estar implementadas y justificadas técnicamente dentro del SGSST de la empresa.</p>
+                              </div>`
+                },
+                'operarios-btn': {
+                    title: '¿Qué se entiende por "Maquinistas y Operarios"?',
+                    content: `<div class="space-y-3 text-base">
+                                <div class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200">
+                                    <img src="https://img.icons8.com/fluency/48/container-truck.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <div>
+                                        <strong class="font-semibold text-blue-800">Maquinistas:</strong>
+                                        <p>Personas que operan maquinaria especializada como trenes, grúas, equipos de construcción, etc.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-green-50 rounded-lg border border-green-200">
+                                    <img src="https://i.imgur.com/VoK677b.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <div>
+                                        <strong class="font-semibold text-green-800">Operarios:</strong>
+                                        <p>Personas que manejan o supervisan máquinas en industrias, ensamblaje, montajes, entre otros.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-sm text-slate-500"><i>La inclusión de un cargo específico debe estar justificada técnicamente en el SGSST de cada empresa.</i></p>`
+                },
+                 'employer-resp-btn': {
+                    title: 'Responsabilidades del Empleador',
+                    content: `<ul class="list-none space-y-3 text-base">
+                                <li class="flex items-start p-3 bg-orange-50 rounded-lg border border-orange-200"><span class="mr-3 text-2xl">1.</span><div><strong class="font-semibold" style="color:var(--primary-orange)">Asumir Costos:</strong> Pagar el 100% de las evaluaciones médicas.</div></li>
+                                <li class="flex items-start p-3 bg-orange-50 rounded-lg border border-orange-200"><span class="mr-3 text-2xl">2.</span><div><strong class="font-semibold" style="color:var(--primary-orange)">Definir Perfiles:</strong> Entregar al médico un perfil detallado del cargo y sus riesgos.</div></li>
+                                <li class="flex items-start p-3 bg-orange-50 rounded-lg border border-orange-200"><span class="mr-3 text-2xl">3.</span><div><strong class="font-semibold" style="color:var(--primary-orange)">Implementar Recomendaciones:</strong> Adaptar el puesto de trabajo en un plazo de 20 días.</div></li>
+                             </ul>`
+                },
+                'worker-resp-btn': {
+                    title: 'Responsabilidades del Trabajador',
+                    content: `<ul class="list-none space-y-3 text-base">
+                                <li class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200"><span class="text-blue-500 mr-3 mt-1 font-bold">✓</span><div><strong class="font-semibold" style="color: var(--primary-blue);">Información Veraz:</strong> Informar de manera completa sobre tu estado de salud.</div></li>
+                                <li class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200"><span class="text-blue-500 mr-3 mt-1 font-bold">✓</span><div><strong class="font-semibold" style="color: var(--primary-blue);">Asistir a Exámenes:</strong> Es tu deber acudir a las evaluaciones programadas.</div></li>
+                                <li class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200"><span class="text-blue-500 mr-3 mt-1 font-bold">✓</span><div><strong class="font-semibold" style="color: var(--primary-blue);">Acatar Recomendaciones:</strong> Cumplir las restricciones para cuidar tu salud y la de otros.</div></li>
+                             </ul>`
+                },
+                'personal-btn': {
+                    title: 'Personal Calificado y Autorizado',
+                    content: `<p class="text-base">La toma de pruebas debe ser realizada por personal de salud con Licencia de SST vigente. Esto incluye, entre otros:</p>
+                             <div class="space-y-3 mt-4 text-base">
+                                <div class="flex items-center p-3 bg-blue-50 rounded-lg border border-blue-200"><img src="https://i.imgur.com/xG2HBvU.png" class="h-10 w-10 mr-4 flex-shrink-0"/><span>Médicos</span></div>
+                                <div class="flex items-center p-3 bg-green-50 rounded-lg border border-green-200"><img src="https://i.imgur.com/Ac7m0F7.png" class="h-10 w-10 mr-4 flex-shrink-0"/><span>Enfermeros(as) y auxiliares</span></div>
+                                <div class="flex items-center p-3 bg-yellow-50 rounded-lg border border-yellow-200"><img src="https://img.icons8.com/fluency/48/microscope.png" class="h-10 w-10 mr-4 flex-shrink-0"/><span>Bacteriólogos</span></div>
+                                <div class="flex items-center p-3 bg-red-50 rounded-lg border border-red-200"><img src="https://img.icons8.com/fluency/48/test-tube.png" class="h-10 w-10 mr-4 flex-shrink-0"/><span>Técnicos y tecnólogos en laboratorio</span></div>
+                                <div class="flex items-center p-3 bg-purple-50 rounded-lg border border-purple-200"><img src="https://i.imgur.com/of2Yiaa.png" class="h-10 w-10 mr-4 flex-shrink-0"/><span>Fisioterapeutas y terapeutas ocupacionales</span></div>
+                             </div>`
+                },
+                'calidad-btn': {
+                    title: 'Garantizando la Validez',
+                    content: `<div class="space-y-3 text-base">
+                                <div class="flex items-start p-3 bg-green-50 rounded-lg border border-green-200">
+                                    <img src="https://img.icons8.com/fluency/48/maintenance.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <p><strong>Aseguramiento de la Calidad:</strong> Es obligatorio contar con un sistema que incluya calibración de equipos y capacitación del personal.</p>
+                                </div>
+                                <div class="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-200">
+                                    <img src="https://img.icons8.com/fluency/48/document.png" class="h-10 w-10 mr-4 flex-shrink-0"/>
+                                    <p><strong>Referencias Técnicas:</strong> Se pueden usar como referencia las normas del Instituto de Medicina Legal.</p>
+                                </div>
+                             </div>`
+                },
+                'custodia-btn': {
+                    title: 'Custodia y Reserva de Resultados',
+                    content: `<div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200 flex items-start text-base">
+                                <img src="https://img.icons8.com/fluency/48/privacy.png" class="h-12 w-12 mr-4 flex-shrink-0"/>
+                                <p>La custodia de los resultados y la historia clínica estará a cargo del <strong>médico</strong> o de la <strong>IPS prestadora del servicio</strong>, quienes deben contar con Licencia de SST vigente para garantizar la confidencialidad.</p>
+                              </div>`
+                }
+            };
+
+            const modal = document.getElementById('info-modal');
+            const modalTitle = document.getElementById('info-modal-title');
+            const modalText = document.getElementById('info-modal-text');
+
+            document.querySelectorAll('.info-button, #operarios-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const data = modalData[button.id];
+                    if (data) {
+                        modalTitle.textContent = data.title;
+                        modalText.innerHTML = data.content;
+                        openModal(modal);
+                    }
+                });
+            });
+
+            const openModal = (modal) => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+            };
+
+            const closeModal = (modal) => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.add('scale-95');
+            };
+
+            modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+                btn.addEventListener('click', () => closeModal(modal));
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal(modal);
+            });
+        });
+    </script>
+</body>
+</html>

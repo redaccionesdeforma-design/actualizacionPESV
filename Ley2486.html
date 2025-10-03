@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Interactiva: Ley 2486 de 2025 - Movilidad Eléctrica Personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Main Palette */
+            --primary-orange: #da723f;
+            --primary-blue: #003189;
+            --accent-yellow: #ffc800;
+            --accent-red: #d80025;
+            
+            /* UI Colors */
+            --text-dark: #1e293b; /* slate-800 */
+            --text-light: #475569; /* slate-600 */
+            --bg-orange-light: #FFF9F5;
+            --border-color: #e2e8f0; /* slate-200 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            color: var(--text-dark);
+            background-color: var(--bg-orange-light);
+        }
+        
+        .highlight-line {
+            height: 4px;
+            width: 80px;
+            background-color: var(--primary-orange);
+            margin: 0.5rem 0 0; /* Align left for section headers */
+        }
+        .highlight-line-center {
+            margin: 0.5rem auto 0; /* Center for main header */
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            min-height: 170px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s, box-shadow 0.3s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 15px -2px rgba(218, 114, 63, 0.08);
+            border-radius: 1rem;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(218, 114, 63, 0.15);
+        }
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 1rem;
+            border: 1px solid #fdeee7;
+        }
+        .flip-card-front {
+            background-color: white;
+        }
+        .flip-card-back {
+            background-color: #fef3ed; 
+            transform: rotateY(180deg);
+        }
+        
+        /* Interactive elements */
+        .info-indicator {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background-color: white;
+            color: var(--primary-orange);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: pulse 2.5s infinite;
+            z-index: 10;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+         .info-button {
+           position: static;
+           display: inline-flex;
+           margin-top: 0.75rem; /* More space */
+           background-color: white;
+           color: var(--primary-orange);
+           width: 32px;
+           height: 32px;
+           border-radius: 50%;
+           align-items: center;
+           justify-content: center;
+           font-weight: bold;
+           font-size: 1.2rem;
+           animation: pulse 2.5s infinite;
+           box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(218, 114, 63, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(218, 114, 63, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(218, 114, 63, 0); }
+        }
+
+        /* Modal & Chat */
+        .modal, #chat-window {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .modal .modal-content {
+            transition: transform 0.3s ease;
+        }
+        #chat-window.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+        .user-message {
+            background-color: var(--primary-orange);
+            color: white;
+        }
+        .ai-message {
+            background-color: #e2e8f0;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-white shadow-sm">
+        <header class="container mx-auto p-4 sm:p-6 md:py-8 max-w-5xl text-center">
+            <img src="https://i.imgur.com/pcF6qAc.png" alt="Logo Movilidad Sostenible" class="h-32 md:h-36 w-auto object-contain mx-auto mb-6">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight" style="color: var(--primary-blue);">
+                Ley 2486 de 2025: VELMPU
+            </h1>
+            <div class="highlight-line highlight-line-center"></div>
+            <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Guía Rápida para la Movilidad Eléctrica Personal.</p>
+        </header>
+    </div>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-5xl">
+        <main class="space-y-10 mt-8">
+            
+            <section class="section-card p-6 md:p-8">
+                <div class="text-left">
+                    <h2 class="text-3xl font-bold text-slate-900">¿A Quiénes Aplica?</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://img.icons8.com/plasticine/100/kick-scooter.png" alt="Patineta eléctrica" class="h-16 w-16 mx-auto mb-2"><h3 class="text-xl font-bold">Uso Individual</h3></div><div class="flip-card-back"><p class="font-semibold">Diseñados para <strong style="color: var(--primary-orange);">una sola persona</strong>.</p></div></div></div>
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://img.icons8.com/fluency/96/lightning-bolt.png" alt="Motor Eléctrico" class="h-16 w-16 mx-auto mb-2"><h3 class="text-xl font-bold">Motor Eléctrico</h3><button class="info-indicator" data-title="Potencia del Motor" data-info="La potencia máxima de 1000W está pensada para ofrecer un equilibrio perfecto entre la eficiencia energética para la ciudad y un rendimiento adecuado, sin llegar a las velocidades de vehículos más grandes.">+</button></div><div class="flip-card-back"><p class="font-semibold">Potencia máxima de <strong style="color: var(--primary-orange);">1000W</strong>.</p></div></div></div>
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/CUg6MKB.jpeg" alt="Bicicleta Eléctrica" class="h-16 w-16 mx-auto mb-2"><h3 class="text-xl font-bold">Incluye Vehículos</h3></div><div class="flip-card-back"><p class="font-semibold"><strong style="color: var(--primary-orange);">Bicicletas con pedaleo asistido</strong> (eléctricas).</p></div></div></div>
+                </div>
+            </section>
+            
+            <section class="section-card p-6 md:p-8">
+                <div class="text-left">
+                    <h2 class="text-3xl font-bold text-slate-900">Normas Clave</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/VjzybcU.jpeg" alt="Edad Mínima" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Edad Mínima</h4></div><div class="flip-card-back"><p><strong style="color: var(--primary-orange);">16 años</strong> en vías.</p><p class="mt-1">De <strong style="color: var(--primary-orange);">12 a 16 años</strong> solo en ciclo-infraestructura.</p></div></div></div>
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://img.icons8.com/dusk/64/road.png" alt="Vías permitidas" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Circulación</h4></div><div class="flip-card-back"><ul class="text-sm space-y-1 text-left"><li class="font-medium">✓ Ciclo-infraestructura</li><li class="font-medium">✓ Carril derecho</li><li class="font-semibold mt-2">✗ <strong style="color: var(--accent-red);">PROHIBIDO</strong> en andenes y zonas peatonales.</li></ul></div></div></div>
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/9JB8SxT.jpeg" alt="Velocidad" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Velocidad Máx.</h4></div><div class="flip-card-back"><p><strong style="color: var(--primary-orange);" class="block text-2xl">25 km/h</strong> en ciclorrutas.</p><p class="mt-2"><strong style="color: var(--primary-orange);" class="block text-2xl">40 km/h</strong> en vías.</p></div></div></div>
+                    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://i.imgur.com/Sb1KoYd.jpeg" alt="Equipamiento" class="h-16 w-16 mx-auto mb-2"><h4 class="font-bold">Equipamiento</h4><button class="info-indicator" data-title="Equipamiento Obligatorio" data-info="El uso constante de casco, luces y prendas reflectivas no es solo una norma, es la principal barrera de seguridad activa y pasiva para prevenir lesiones graves en caso de un siniestro vial.">👁️</button></div><div class="flip-card-back"><ul class="text-sm space-y-1 text-left"><li class="font-medium">✓ <strong style="color: var(--primary-orange);">Casco</strong> ¡Siempre!</li><li class="font-medium">✓ <strong style="color: var(--primary-orange);">Reflectivos</strong> (Noche)</li><li class="font-medium">✓ <strong style="color: var(--primary-orange);">Luces</strong> ¡Siempre!</li></ul></div></div></div>
+                 </div>
+            </section>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                
+                <section class="section-card p-6 md:p-8 flex flex-col">
+                     <div class="flex-shrink-0">
+                        <h2 class="text-3xl font-bold text-slate-900">Sanciones y Multas</h2>
+                        <div class="highlight-line"></div>
+                    </div>
+                    <div class="bg-red-50 text-center border border-red-200 p-4 rounded-xl my-4">
+                        <p class="font-bold text-red-800">Multa General</p>
+                        <p class="text-4xl font-black" style="color: var(--accent-red);">6 SMLDV</p>
+                    </div>
+                    
+                    <ul id="sanctions-list" class="space-y-2 flex-grow">
+                        <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="No Usar Casco" data-impact="Un accidente sin casco puede causar incapacidades prolongadas, afectando la productividad y elevando los costos de pólizas de la empresa. Refleja un fallo en la cultura de autocuidado." data-control="Implementar políticas de seguridad vial que exijan el casco. Realizar campañas de concienciación y ofrecer incentivos para la compra de Elementos de Protección Personal (EPP)."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">No usar casco</span><span class="ml-auto bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Inmovilización</span></li>
+                        <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="Conducir bajo efectos de Alcohol/Drogas" data-impact="Causa de despido y potencial responsable de accidentes fatales. Implica un riesgo legal y reputacional inmenso para la empresa." data-control="Política de cero tolerancia. Realizar pruebas aleatorias (dentro del marco legal) y campañas de prevención sobre los riesgos del consumo."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">Conducir ebrio/drogado</span><span class="ml-auto bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Inmovilización</span></li>
+                        <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="Llevar Pasajeros" data-impact="Aumenta exponencialmente el riesgo. La empresa podría ser corresponsable en un accidente laboral, enfrentando implicaciones legales y reputacionales." data-control="Prohibir explícitamente el transporte de pasajeros en VELMPU durante trayectos laborales en el reglamento interno y políticas de movilidad."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">Llevar pasajeros</span></li>
+                        <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="Exceder Límites de Velocidad" data-impact="Daña la imagen corporativa y aumenta la probabilidad de siniestros que afectan los indicadores de accidentalidad de la empresa." data-control="Fomentar una cultura de conducción defensiva. Usar apps de telemetría para monitorear viajes corporativos y promover el respeto por los límites."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">Exceder velocidad</span></li>
+                        <li class="flex items-center p-3 rounded-lg hover:bg-red-50 cursor-pointer transition-colors border" data-title="Circular por Andenes" data-impact="Genera riesgo de atropello a peatones, lo que puede derivar en demandas. Afecta negativamente la reputación de la compañía como un actor vial responsable." data-control="Capacitar al personal sobre las normas y zonas permitidas, enfatizando el respeto por los espacios peatonales como un valor corporativo."><span class="font-bold text-red-600 mr-3">✗</span><span class="flex-1">Circular por andenes</span></li>
+                    </ul>
+                </section>
+
+                <section class="section-card p-6 md:p-8 text-center flex flex-col">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex-shrink-0">Tus Derechos</h2>
+                    <div class="space-y-4 flex flex-col flex-grow justify-center">
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 flex-grow flex flex-col justify-center items-center"><h4 class="font-bold text-lg" style="color: var(--primary-blue);">Prelación en la Vía</h4><p class="text-base text-slate-600">Los demás vehículos deben darte prioridad.</p><button class="info-button pulse-button" data-title="Sobre la Prelación en Vía" data-info="Este derecho te reconoce como un actor vial prioritario junto a peatones y ciclistas. Significa que en intersecciones no señalizadas y otros escenarios, los vehículos más grandes deben cederte el paso, reconociendo tu vulnerabilidad.">+</button></div>
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 flex-grow flex flex-col justify-center items-center"><h4 class="font-bold text-lg" style="color: var(--primary-blue);">Distancia Segura</h4><p class="text-base text-slate-600">Al adelantar, deben mantener <strong class="font-black">1.50m</strong>.</p><button class="info-button pulse-button" data-title="Importancia del 1.50m" data-info="La distancia de 1.50 metros al adelantar no es arbitraria. Crea una 'burbuja' de seguridad que te protege de ráfagas de viento, movimientos inesperados del vehículo y te da espacio para maniobrar si encuentras un obstáculo en la vía.">+</button></div>
+                    </div>
+                </section>
+            </div>
+            
+            <section class="section-card p-6 md:p-8" style="background-color: #FFF9F5;">
+                 <div class="text-left">
+                    <h2 class="text-3xl font-bold text-slate-900">Beneficios</h2>
+                    <div class="highlight-line"></div>
+                </div>
+                <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left text-base mt-6">
+                    <li class="flex items-start p-4 rounded-xl bg-white border"><span class="text-yellow-500 mr-3 mt-1 font-bold text-2xl">✓</span><div><strong class="font-bold" style="color: var(--primary-orange);">¡Sin Trámites!</strong><br>NO necesitas Matrícula, SOAT ni Licencia.</div></li>
+                    <li class="flex items-start p-4 rounded-xl bg-white border"><span class="text-yellow-500 mr-3 mt-1 font-bold text-2xl">✓</span><div><strong class="font-bold" style="color: var(--primary-orange);">Promoción</strong><br>Se impulsará su uso con campañas y beneficios.</div></li>
+                    <li class="flex items-start p-4 rounded-xl bg-white border"><span class="text-yellow-500 mr-3 mt-1 font-bold text-2xl">✓</span><div><strong class="font-bold" style="color: var(--primary-orange);">Más Económicos</strong><br>Se buscará reducir impuestos de importación.</div></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
+             <p class="text-2xl font-bold text-slate-800">¡Muévete seguro y de forma sostenible!</p>
+             <p class="mt-2 text-sm text-slate-500 mb-4">Fuente: Ley 2486 de 2025, Congreso de la República de Colombia.</p>
+             <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/30055263" target="_blank" rel="noopener noreferrer" class="inline-block text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors" style="background-color: var(--primary-blue);">Consultar Ley Original</a>
+        </footer>
+    </div>
+
+    <!-- Modals & Chatbot -->
+    <div id="sanction-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto transform scale-95">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <h3 id="sanction-modal-title" class="text-xl font-bold" style="color: var(--primary-orange);"></h3>
+                    <button class="modal-close text-slate-400 hover:text-slate-800 transition-colors text-2xl">&times;</button>
+                </div>
+                <div class="space-y-4 text-sm mt-4">
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Impacto Empresarial:</h4>
+                        <p id="sanction-modal-impact" class="text-slate-700"></p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Medidas de Control:</h4>
+                        <p id="sanction-modal-control" class="text-slate-700"></p>
+                    </div>
+                </div>
+            </div>
+             <div class="bg-slate-50 px-6 py-3 text-right rounded-b-2xl border-t">
+                <button class="modal-close-btn bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors text-sm">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="info-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto transform scale-95">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <h3 id="info-modal-title" class="text-xl font-bold" style="color: var(--primary-blue);"></h3>
+                    <button class="modal-close text-slate-400 hover:text-slate-800 transition-colors text-2xl">&times;</button>
+                </div>
+                <p id="info-modal-text" class="text-slate-700 text-base mt-2"></p>
+            </div>
+             <div class="bg-slate-50 px-6 py-3 text-right rounded-b-2xl border-t">
+                <button class="modal-close-btn bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg hover:bg-slate-300 transition-colors text-sm">Entendido</button>
+            </div>
+        </div>
+    </div>
+    
+    <button id="chat-fab" class="fixed bottom-6 right-6 text-white rounded-full p-4 shadow-lg transition-transform hover:scale-110 z-40" style="background-color: var(--primary-orange);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 0 0 10-10c0-5.52-4.48-10-10-10S2 6.48 2 12c0 2.45 1.11 4.7 2.86 6.34.03.03.06.06.09.09l1.72 1.72c.58.58 1.52.58 2.1 0l1.4-1.4c.58-.58.58-1.52 0-2.1l-1.4-1.4c-.58-.58-1.52-.58-2.1 0L5.5 16.51c-1.28-1.3-2-3.07-2-4.93 0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7a6.96 6.96 0 0 1-2.92-.68"/><path d="m16 9-2.5 2.5"/><path d="m13.5 11.5 2.5 2.5"/><circle cx="12" cy="12" r="10"/></svg>
+    </button>
+    <div id="chat-window" class="hidden fixed bottom-24 right-6 w-full max-w-sm bg-white rounded-xl shadow-2xl flex flex-col h-[70vh] max-h-[500px] z-40">
+        <div class="p-4 border-b bg-slate-100 rounded-t-xl">
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold" style="color:var(--primary-orange)">Asistente Vial-E</h3>
+                <button id="chat-close" class="text-slate-500 hover:text-slate-800 text-2xl">&times;</button>
+            </div>
+            <p class="text-sm text-slate-500">Pregúntame sobre la Ley 2486</p>
+        </div>
+        <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto bg-white"></div>
+        <div class="p-4 border-t bg-slate-50">
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2" style="border-color: var(--border-color); --tw-ring-color: var(--primary-orange);">
+                <button id="chat-send" class="text-white rounded-lg px-4 py-2 font-semibold" style="background-color: var(--primary-orange);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('.info-indicator') && !e.target.closest('.info-button')) {
+                         card.classList.toggle('is-flipped');
+                    }
+                });
+            });
+
+            const setupModal = (modalId, triggerSelector, dataSetter) => {
+                const modal = document.getElementById(modalId);
+                const triggers = document.querySelectorAll(triggerSelector);
+                triggers.forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        dataSetter(modal, trigger);
+                        openModal(modal);
+                    });
+                });
+                modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+                    btn.addEventListener('click', () => closeModal(modal));
+                });
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal(modal);
+                });
+            };
+
+            const openModal = (modal) => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+            };
+
+            const closeModal = (modal) => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.querySelector('.modal-content').classList.add('scale-95');
+            };
+
+            setupModal('sanction-modal', '#sanctions-list li', (modal, trigger) => {
+                modal.querySelector('#sanction-modal-title').textContent = trigger.dataset.title;
+                modal.querySelector('#sanction-modal-impact').textContent = trigger.dataset.impact;
+                modal.querySelector('#sanction-modal-control').textContent = trigger.dataset.control;
+            });
+            
+            setupModal('info-modal', '.info-indicator, .info-button', (modal, trigger) => {
+                modal.querySelector('#info-modal-title').textContent = trigger.dataset.title;
+                modal.querySelector('#info-modal-text').textContent = trigger.dataset.info;
+            });
+
+            const chatFab = document.getElementById('chat-fab');
+            const chatWindow = document.getElementById('chat-window');
+            const closeChatBtn = document.getElementById('chat-close');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const chatSendBtn = document.getElementById('chat-send');
+
+            chatFab.addEventListener('click', () => chatWindow.classList.remove('hidden'));
+            closeChatBtn.addEventListener('click', () => chatWindow.classList.add('hidden'));
+
+            const addMessage = (text, sender) => {
+                const messageEl = document.createElement('div');
+                messageEl.className = `w-fit max-w-xs lg:max-w-sm p-3 rounded-xl ${sender === 'user' ? 'user-message self-end' : 'ai-message self-start'}`;
+                messageEl.textContent = text;
+                chatMessages.appendChild(messageEl);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            const getAiResponse = (message) => {
+                const m = message.toLowerCase();
+                if (m.includes('hola') || m.includes('saludos')) return '¡Hola! Soy Vial-E, tu asistente virtual sobre la Ley 2486. ¿En qué puedo ayudarte hoy?';
+                if (m.includes('casco')) return 'El uso de casco de seguridad es SIEMPRE obligatorio. No usarlo puede causar la inmovilización del vehículo. Para una empresa, esto es crítico para proteger a sus empleados y evitar incapacidades laborales.';
+                if (m.includes('velocidad')) return 'La velocidad máxima es 25 km/h en ciclorrutas y 40 km/h en vías. Las empresas deben fomentar una cultura de conducción defensiva para proteger su imagen y evitar accidentes.';
+                if (m.includes('multa') || m.includes('sancion')) return 'La multa general por infringir las normas es de 6 Salarios Mínimos Diarios Legales Vigentes (SMLDV). Faltas graves como no usar casco o conducir ebrio pueden llevar a la inmovilización del vehículo.';
+                if (m.includes('empresa') || m.includes('empresarial') || m.includes('pesv')) return 'Esta ley es clave para el Plan Estratégico de Seguridad Vial (PESV) de tu empresa. Debes capacitar a tus empleados, exigir el uso de EPP como el casco, y establecer políticas claras para prevenir accidentes que puedan ser catalogados como laborales. La correcta gestión de estos vehículos demuestra el compromiso de la empresa con la seguridad.';
+                if (m.includes('edad')) return 'La edad mínima para conducir en vías es 16 años. Entre 12 y 16 años, solo se puede circular por la ciclo-infraestructura.';
+                if (m.includes('soat') || m.includes('licencia') || m.includes('papeles')) return '¡Buenas noticias! Para estos vehículos NO se necesita Matrícula, SOAT ni Licencia de Conducción.';
+                if (m.includes('gracias') || m.includes('adios')) return '¡De nada! Si tienes más dudas, aquí estoy para ayudarte. ¡Rueda con seguridad!';
+                return 'No he entendido tu pregunta. Por favor, intenta reformularla usando palabras clave como "casco", "multas", "velocidad", "empresa", "edad" o "PESV".';
+            };
+            
+            const handleSendMessage = () => {
+                const userText = chatInput.value.trim();
+                if (!userText) return;
+                
+                addMessage(userText, 'user');
+                chatInput.value = '';
+                
+                const aiText = getAiResponse(userText);
+                setTimeout(() => {
+                     addMessage(aiText, 'ai');
+                }, 500);
+            };
+
+            chatSendBtn.addEventListener('click', handleSendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSendMessage();
+            });
+
+            setTimeout(() => addMessage('¡Hola! Soy Vial-E. ¿Qué te gustaría saber sobre la Ley 2486 y su impacto en el PESV?', 'ai'), 500);
+        });
+    </script>
+</body>
+</html>
+
