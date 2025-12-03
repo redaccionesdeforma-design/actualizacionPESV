@@ -50,6 +50,7 @@
         /* Timeline */
         .timeline-item {
             position: relative;
+            padding-left: 3rem; /* CORRECCIÓN: Espacio para que el texto no se superponga al punto */
         }
         .timeline-item::before {
             content: '';
@@ -230,8 +231,8 @@
                     <h2 class="text-3xl font-bold text-slate-900">Fechas Clave de la Transición</h2>
                     <div class="highlight-line"></div>
                 </div>
-                <!-- Timeline -->
-                <div class="relative pl-12">
+                <!-- Timeline: Se eliminó pl-12 del contenedor padre -->
+                <div class="relative"> 
                     <div class="timeline-item pb-8">
                         <div class="timeline-dot"></div>
                         <p class="font-bold text-lg" style="color: var(--primary-blue);">Último día en SISI/PESV</p>
