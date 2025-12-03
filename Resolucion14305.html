@@ -48,6 +48,9 @@
         }
         
         /* Timeline */
+        .timeline-item {
+            position: relative;
+        }
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -69,14 +72,48 @@
             border-radius: 9999px;
             background-color: white;
             border: 4px solid var(--primary-blue);
+            z-index: 10;
         }
 
-        /* Modal */
-        .modal { transition: opacity 0.3s ease, transform 0.3s ease; }
-        .modal .modal-content { 
+        /* Modal Overlay & Content */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 49, 137, 0.6); /* Azul semitransparente */
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content { 
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 1rem;
+            padding: 2rem;
+            transform: scale(0.9);
             transition: transform 0.3s ease;
             border: 3px solid var(--primary-orange);
-            box-shadow: 0 10px 25px -5px rgba(218, 114, 63, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
         }
         
         @keyframes pulse {
@@ -117,50 +154,48 @@
             margin-right: 0.5rem;
         }
 
-        /* Estilo del botón de Índice Fijo (Home Button) */
+        /* Estilo del botón de Índice Fijo */
         #index-button {
             position: fixed;
-            top: 1.5rem; /* Ajuste la posición superior */
-            left: 1rem; /* Margen de 1rem a la izquierda de la pantalla */
-            z-index: 50; /* Asegurar que esté por encima del contenido */
-            background-color: var(--primary-blue); /* Color azul primario */
+            top: 1.5rem; 
+            left: 1rem; 
+            z-index: 50; 
+            background-color: var(--primary-blue); 
             color: white;
             padding: 0.75rem 1.5rem;
-            border-radius: 0.75rem; /* Bordes redondeados */
+            border-radius: 0.75rem; 
             font-weight: 700;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             box-shadow: 0 4px 12px rgba(0, 49, 137, 0.4);
             transition: all 0.2s ease-in-out;
+            text-decoration: none;
         }
         #index-button:hover {
-            background-color: #004099; /* Azul ligeramente más oscuro al pasar el mouse */
+            background-color: #004099; 
             transform: scale(1.05);
         }
         #index-button svg {
             margin-right: 0.5rem;
         }
-        /* Se elimina la media query que centraba el botón para que quede pegado a la izquierda */
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased pb-12">
 
-    <!-- BOTÓN DE ÍNDICE FLOTANTE AGREGADO -->
+    <!-- BOTÓN DE ÍNDICE FLOTANTE -->
     <a href="https://redaccionesdeforma-design.github.io/actualizacionPESV/index.html" target="_blank" rel="noopener noreferrer" id="index-button" role="button" aria-label="Ir al índice o inicio">
-        <!-- Icono de Casa (SVG) -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
             <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
         Índice
     </a>
-    <!-- FIN BOTÓN DE ÍNDICE -->
 
-    <div class="bg-white shadow-sm" id="top-section"> <!-- ID de anclaje para el botón -->
+    <div class="bg-white shadow-sm" id="top-section">
         <header class="text-center py-8">
             <div class="container mx-auto px-4">
-                 <!-- Logo de ejemplo de Seguridad Vial. Se usa una imagen de un logo genérico de Imgur para fines ilustrativos. -->
+                 <!-- Logo placeholder -->
                  <img src="https://i.imgur.com/O4SoFPn.png" alt="Logo Seguridad Vial" class="h-24 md:h-28 w-auto object-contain mx-auto mb-4">
                 <h1 class="text-3xl md:text-4xl font-black tracking-tight" style="color: var(--primary-blue);">
                     ¡Adiós al SISI/PESV, Bienvenido SINST – VIGIA 2!
@@ -177,7 +212,6 @@
             <section class="section-card p-6 md:p-8" id="el-gran-cambio">
                 <div class="flex flex-col md:flex-row items-center gap-8">
                     <div class="flex-shrink-0">
-                        <!-- Icono de sincronización/cambio -->
                         <img src="https://img.icons8.com/fluency/144/synchronize.png" alt="Transición de sistemas" class="h-36 w-36"/>
                     </div>
                     <div class="text-center md:text-left flex-1">
@@ -196,7 +230,7 @@
                     <h2 class="text-3xl font-bold text-slate-900">Fechas Clave de la Transición</h2>
                     <div class="highlight-line"></div>
                 </div>
-                <!-- Timeline de la transición -->
+                <!-- Timeline -->
                 <div class="relative pl-12">
                     <div class="timeline-item pb-8">
                         <div class="timeline-dot"></div>
@@ -229,7 +263,6 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div class="text-center">
-                        <!-- Icono de formulario/soporte en línea -->
                         <img src="https://img.icons8.com/fluency/144/online-support.png" alt="Formulario digital" class="h-36 w-36 mx-auto"/>
                     </div>
                     <div>
@@ -244,21 +277,144 @@
 
              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                  <section class="section-card p-6 md:p-8 text-center flex flex-col justify-between">
-                      <!-- Icono de acuerdo/responsabilidad -->
-                     <img src="https://img.icons8.com/fluency/96/agreement.png" alt="Responsabilidad" class="h-20 w-20 mx-auto mb-2"/>
-                     <h2 class="text-2xl font-bold text-slate-900 mb-4">Tu Responsabilidad</h2>
-                     <button class="info-button" id="responsibility-btn"><span>+</span>Ver detalles</button>
-                </section>
+                      <img src="https://img.icons8.com/fluency/96/agreement.png" alt="Responsabilidad" class="h-20 w-20 mx-auto mb-2"/>
+                      <h2 class="text-2xl font-bold text-slate-900 mb-4">Tu Responsabilidad</h2>
+                      <button class="info-button mx-auto" id="responsibility-btn"><span>+</span>Ver detalles</button>
+                 </section>
                 <section class="section-card p-6 md:p-8 text-center flex flex-col justify-between">
-                    <!-- Icono de balanza/justicia -->
                     <img src="https://img.icons8.com/fluency/96/scales.png" alt="Sanciones" class="h-20 w-20 mx-auto mb-2"/>
                     <h2 class="text-2xl font-bold text-slate-900 mb-4">Sanciones</h2>
-                    <button class="info-button" id="sanctions-btn"><span>+</span>Ver detalles</button>
+                    <button class="info-button mx-auto" id="sanctions-btn"><span>+</span>Ver detalles</button>
                 </section>
              </div>
              
+             <!-- SECCIÓN COMPLETADA -->
              <section class="section-card p-6 bg-blue-50 border-blue-200" id="operadores-tecnologicos">
-                <div class="flex items-center">
-                    <div class="mr-4 flex-shrink-0">
-                        <!-- Icono de herramientas administrativas -->
-                        <img src="https://img.icons8.com/fluency/96/administrative-tools.png" alt="Operadores tecnológicos" class="
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="mr-0 md:mr-6 mb-4 md:mb-0 flex-shrink-0">
+                        <img src="https://img.icons8.com/fluency/96/administrative-tools.png" alt="Operadores tecnológicos" class="h-24 w-24"/>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h2 class="text-xl font-bold text-blue-900 mb-2">Para Operadores Tecnológicos</h2>
+                        <p class="text-blue-800 text-sm">
+                            Si utilizas plataformas de terceros o eres un proveedor de software, la resolución exige garantizar la <strong>interoperabilidad</strong> con el sistema SINST a través de <strong>Web Services</strong>.
+                        </p>
+                        <p class="mt-2 text-blue-700 text-xs font-semibold">
+                            Revisa el Anexo Técnico para asegurar la correcta transmisión de datos.
+                        </p>
+                    </div>
+                </div>
+             </section>
+
+             <footer class="text-center text-slate-500 text-sm mt-12">
+                <p class="mb-2">Basado en la Resolución 14305 del 23 de Diciembre de 2024 - Superintendencia de Transporte.</p>
+                <p>&copy; 2024 - Diseño informativo para propósitos educativos.</p>
+             </footer>
+
+        </main>
+    </div>
+
+    <!-- MODAL 1: RESPONSABILIDAD -->
+    <div class="modal-overlay" id="modal-responsibility" aria-hidden="true">
+        <div class="modal-content">
+            <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="text-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full inline-block mb-3">
+                    <img src="https://img.icons8.com/fluency/48/agreement.png" alt="Responsabilidad"/>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Deber de Reportar</h3>
+            </div>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+                Es responsabilidad directa de la empresa (o el sujeto obligado) garantizar que la información cargada en el <strong>SINST – VIGIA 2</strong> sea:
+            </p>
+            <ul class="list-disc list-inside text-left text-slate-700 space-y-2 mb-6 bg-slate-50 p-4 rounded-lg">
+                <li><strong class="text-blue-800">Veraz:</strong> Los datos deben corresponder a la realidad operativa.</li>
+                <li><strong class="text-blue-800">Oportuna:</strong> Debe cargarse dentro de los plazos estipulados.</li>
+                <li><strong class="text-blue-800">Completa:</strong> No omitir campos obligatorios del PESV.</li>
+            </ul>
+            <button class="w-full bg-[#003189] text-white py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors close-modal-btn">Entendido</button>
+        </div>
+    </div>
+
+    <!-- MODAL 2: SANCIONES -->
+    <div class="modal-overlay" id="modal-sanctions" aria-hidden="true">
+        <div class="modal-content">
+            <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="text-center mb-4">
+                <div class="bg-red-50 p-3 rounded-full inline-block mb-3">
+                    <img src="https://img.icons8.com/fluency/48/scales.png" alt="Sanciones"/>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Régimen Sancionatorio</h3>
+            </div>
+            <p class="text-slate-600 mb-4 leading-relaxed">
+                El incumplimiento en el reporte de información o el suministro de datos falsos acarrea sanciones administrativas severas.
+            </p>
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6 text-left">
+                <p class="text-red-800 font-semibold mb-1">Consecuencias Legales</p>
+                <p class="text-sm text-red-700">La Superintendencia de Transporte podrá imponer multas y sanciones según lo establecido en el régimen de transporte vigente por obstrucción a la vigilancia o incumplimiento de normas de seguridad vial.</p>
+            </div>
+            <button class="w-full bg-[#da723f] text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors close-modal-btn">Entendido</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Helpers
+            const openModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if(modal) {
+                    modal.classList.add('active');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }
+            };
+
+            const closeModal = (modal) => {
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            };
+
+            // Buttons
+            const btnResponsibility = document.getElementById('responsibility-btn');
+            const btnSanctions = document.getElementById('sanctions-btn');
+
+            // Listeners for opening
+            if(btnResponsibility) {
+                btnResponsibility.addEventListener('click', () => openModal('modal-responsibility'));
+            }
+            if(btnSanctions) {
+                btnSanctions.addEventListener('click', () => openModal('modal-sanctions'));
+            }
+
+            // Close logic (Buttons inside modal & Overlay click)
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                // Close when clicking the overlay background
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        closeModal(overlay);
+                    }
+                });
+
+                // Close buttons inside modal
+                const closeBtns = overlay.querySelectorAll('.close-modal, .close-modal-btn');
+                closeBtns.forEach(btn => {
+                    btn.addEventListener('click', () => closeModal(overlay));
+                });
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const activeModal = document.querySelector('.modal-overlay.active');
+                    if (activeModal) closeModal(activeModal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
